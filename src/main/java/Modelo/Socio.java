@@ -4,10 +4,110 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author braya
  */
 public class Socio {
+    private int numeroLibros;
+    private String[] tipoVivienda ={"Casa","Departamento","Oficina"};
+    private String cedulaId,nombre,apellido1,apellido2,telefonoMovil,telefonoConvencional;
+    private ArrayList<Libro> librosAdquiridos=new ArrayList();
+    private Direccion direccion;
+
+    public Socio(int numeroLibros, String cedulaId, String nombre, String apellido1, String apellido2, String telefonoMovil, String telefonoConvencional, Direccion direccion) {
+        this.numeroLibros = numeroLibros;
+        this.cedulaId = cedulaId;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.telefonoMovil = telefonoMovil;
+        this.telefonoConvencional = telefonoConvencional;
+        this.direccion = direccion;
+    }
+
+    public int getNumeroLibros() {
+        return numeroLibros;
+    }
+
+    public void setNumeroLibros(int numeroLibros) {
+        this.numeroLibros = numeroLibros;
+    }
+
+    public String[] getTipoVivienda() {
+        return tipoVivienda;
+    }
+
+    public void setTipoVivienda(String[] tipoVivienda) {
+        this.tipoVivienda = tipoVivienda;
+    }
+
+    public String getCedulaId() {
+        return cedulaId;
+    }
+
+    public void setCedulaId(String cedulaId) {
+        this.cedulaId = cedulaId;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido1() {
+        return apellido1;
+    }
+
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
+    }
+
+    public String getApellido2() {
+        return apellido2;
+    }
+
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
+    }
+
+    public String getTelefonoMovil() {
+        return telefonoMovil;
+    }
+
+    public void setTelefonoMovil(String telefonoMovil) {
+        this.telefonoMovil = telefonoMovil;
+    }
+
+    public String getTelefonoConvencional() {
+        return telefonoConvencional;
+    }
+
+    public void setTelefonoConvencional(String telefonoConvencional) {
+        this.telefonoConvencional = telefonoConvencional;
+    }
+
+    public ArrayList<Libro> getLibrosAdquiridos() {
+        return librosAdquiridos;
+    }
+
+    public void setLibrosAdquiridos(ArrayList<Libro> librosAdquiridos) {
+        this.librosAdquiridos = librosAdquiridos;
+    }
+
+    public Direccion getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
+    }
+    
+    
     
 }
