@@ -99,13 +99,18 @@ public class Controlador implements ActionListener{
         this.login.getjTxtNombre().addActionListener(this);
         this.login.getjTxtUsuario().addActionListener(this);
         
+        ///////*****Ubicacion Libro*******////////
+        this.ubicacionLibro.getjBtnActualizar().addActionListener(this);
+        this.ubicacionLibro.getjBtnAtras().addActionListener(this);
+        this.ubicacionLibro.getjBtnBorrar().addActionListener(this);
+        this.ubicacionLibro.getjBtnAceptar().addActionListener(this);
         
     }
     
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
     
 }
