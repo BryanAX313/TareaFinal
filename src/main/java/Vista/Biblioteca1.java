@@ -4,16 +4,18 @@
  */
 package Vista;
 
+import javax.swing.JMenuItem;
+
 /**
  *
  * @author Gabriela
  */
-public class Biblioteca extends javax.swing.JFrame {
+public class Biblioteca1 extends javax.swing.JFrame {
 
     /**
      * Creates new form Biblioteca
      */
-    public Biblioteca() {
+    public Biblioteca1() {
         initComponents();
     }
 
@@ -42,8 +44,6 @@ public class Biblioteca extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 204));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Universidad\\Segundo Semestre\\POO\\Imagenes\\Logo.jpg")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel2.setText("BIBLIOTECA BG");
@@ -120,7 +120,7 @@ public class Biblioteca extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -158,10 +158,35 @@ public class Biblioteca extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Biblioteca().setVisible(true);
+                new Biblioteca1().setVisible(true);
             }
         });
     }
+
+    public JMenuItem getjMnCrearUsuario() {
+        return jMnCrearUsuario;
+    }
+
+    public JMenuItem getjMnIngresarLibro() {
+        return jMnIngresarLibro;
+    }
+
+    public JMenuItem getjMnListaSocio() {
+        return jMnListaSocio;
+    }
+
+    public JMenuItem getjMnLogIn() {
+        return jMnLogIn;
+    }
+
+    public JMenuItem getjMnPrestarLibro() {
+        return jMnPrestarLibro;
+    }
+
+    public JMenuItem getjMnUbiLibro() {
+        return jMnUbiLibro;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

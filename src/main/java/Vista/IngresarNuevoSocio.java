@@ -4,6 +4,10 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Gabriela
@@ -262,6 +266,103 @@ public class IngresarNuevoSocio extends javax.swing.JFrame {
             }
         });
     }
+
+    public JButton getjBtnAceptar() {
+        return jBtnAceptar;
+    }
+
+    public JButton getjBtnAtras() {
+        return jBtnAtras;
+    }
+
+    public JButton getjBtnNuevo() {
+        return jBtnNuevo;
+    }
+
+    public JComboBox<String> getjCbxVivienda() {
+        return jCbxVivienda;
+    }
+
+    public JTextField getjTxtApellido1() {
+        return jTxtApellido1;
+    }
+
+    public JTextField getjTxtApellido2() {
+        return jTxtApellido2;
+    }
+
+    public JTextField getjTxtConvencional() {
+        return jTxtConvencional;
+    }
+
+    public JTextField getjTxtCprincipal() {
+        return jTxtCprincipal;
+    }
+
+    public JTextField getjTxtCsecundaria() {
+        return jTxtCsecundaria;
+    }
+
+    public JTextField getjTxtMovil() {
+        return jTxtMovil;
+    }
+
+    public JTextField getjTxtNombre1() {
+        return jTxtNombre1;
+    }
+
+    public JTextField getjTxtNombre2() {
+        return jTxtNombre2;
+    }
+
+    public JTextField getjTxtNumeracion() {
+        return jTxtNumeracion;
+    }
+
+    public JTextField getjTxtUsuario() {
+        return jTxtUsuario;
+    }
+
+    public void setjTxtApellido1(JTextField jTxtApellido1) {
+        this.jTxtApellido1 = jTxtApellido1;
+    }
+
+    public void setjTxtApellido2(JTextField jTxtApellido2) {
+        this.jTxtApellido2 = jTxtApellido2;
+    }
+
+    public void setjTxtConvencional(JTextField jTxtConvencional) {
+        this.jTxtConvencional = jTxtConvencional;
+    }
+
+    public void setjTxtCprincipal(JTextField jTxtCprincipal) {
+        this.jTxtCprincipal = jTxtCprincipal;
+    }
+
+    public void setjTxtCsecundaria(JTextField jTxtCsecundaria) {
+        this.jTxtCsecundaria = jTxtCsecundaria;
+    }
+
+    public void setjTxtMovil(JTextField jTxtMovil) {
+        this.jTxtMovil = jTxtMovil;
+    }
+
+    public void setjTxtNombre1(JTextField jTxtNombre1) {
+        this.jTxtNombre1 = jTxtNombre1;
+    }
+
+    public void setjTxtNombre2(JTextField jTxtNombre2) {
+        this.jTxtNombre2 = jTxtNombre2;
+    }
+
+    public void setjTxtNumeracion(JTextField jTxtNumeracion) {
+        this.jTxtNumeracion = jTxtNumeracion;
+    }
+
+    public void setjTxtUsuario(JTextField jTxtUsuario) {
+        this.jTxtUsuario = jTxtUsuario;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnAceptar;

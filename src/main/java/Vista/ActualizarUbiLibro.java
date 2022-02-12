@@ -4,6 +4,10 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Gabriela
@@ -162,6 +166,32 @@ public class ActualizarUbiLibro extends javax.swing.JFrame {
             }
         });
     }
+
+    public JButton getjBtnAceptar() {
+        return jBtnAceptar;
+    }
+
+    public JButton getjBtnAtras() {
+        return jBtnAtras;
+    }
+
+    public JComboBox<String> getjCbxArea() {
+        return jCbxArea;
+    }
+
+    public JTextField getjTxtEstante() {
+        return jTxtEstante;
+    }
+
+    public JTextField getjTxtHabitacion() {
+        return jTxtHabitacion;
+    }
+
+    public JTextField getjTxtPiso() {
+        return jTxtPiso;
+    }
+    
+          
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnAceptar;

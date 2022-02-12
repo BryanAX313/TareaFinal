@@ -108,14 +108,12 @@
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jTxtUsuario" pref="110" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTxtCprincipal" max="32767" attributes="0"/>
-                                          <Component id="jTxtCsecundaria" max="32767" attributes="0"/>
-                                          <Component id="jTxtNumeracion" alignment="0" pref="110" max="32767" attributes="0"/>
-                                          <Component id="jCbxVivienda" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="jTxtMovil" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTxtConvencional" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="jTxtCprincipal" max="32767" attributes="0"/>
+                                      <Component id="jTxtCsecundaria" max="32767" attributes="0"/>
+                                      <Component id="jTxtNumeracion" alignment="0" pref="110" max="32767" attributes="0"/>
+                                      <Component id="jCbxVivienda" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
+                                      <Component id="jTxtMovil" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jTxtConvencional" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>

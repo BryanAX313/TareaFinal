@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JList;
+
 /**
  *
  * @author Gabriela
@@ -149,6 +152,23 @@ public class ConocerSocios extends javax.swing.JFrame {
         });
     }
 
+    public JButton getjBtnAceptar() {
+        return jBtnAceptar;
+    }
+
+    public JButton getjBtnActualizar() {
+        return jBtnActualizar;
+    }
+
+    public JButton getjBtnAtras() {
+        return jBtnAtras;
+    }
+
+    public void setjListSocios(JList<String> jListSocios) {
+        this.jListSocios = jListSocios;
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnAceptar;
     private javax.swing.JButton jBtnActualizar;

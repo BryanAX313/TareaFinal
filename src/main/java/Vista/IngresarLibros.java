@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Gabriela
@@ -202,6 +205,59 @@ public class IngresarLibros extends javax.swing.JFrame {
             }
         });
     }
+
+    public JButton getjBtnAtras() {
+        return jBtnAtras;
+    }
+
+    public JButton getjBtnGuardar() {
+        return jBtnGuardar;
+    }
+
+    public JButton getjBtnNuevo() {
+        return jBtnNuevo;
+    }
+
+    public JTextField getjTxtAlias() {
+        return jTxtAlias;
+    }
+
+    public JTextField getjTxtCodigoLibro() {
+        return jTxtCodigoLibro;
+    }
+
+    public JTextField getjTxtFecha() {
+        return jTxtFecha;
+    }
+
+    public JTextField getjTxtNacionalidad() {
+        return jTxtNacionalidad;
+    }
+
+    public JTextField getjTxtTitulo() {
+        return jTxtTitulo;
+    }
+
+    public void setjTxtAlias(JTextField jTxtAlias) {
+        this.jTxtAlias = jTxtAlias;
+    }
+
+    public void setjTxtCodigoLibro(JTextField jTxtCodigoLibro) {
+        this.jTxtCodigoLibro = jTxtCodigoLibro;
+    }
+
+    public void setjTxtFecha(JTextField jTxtFecha) {
+        this.jTxtFecha = jTxtFecha;
+    }
+
+    public void setjTxtNacionalidad(JTextField jTxtNacionalidad) {
+        this.jTxtNacionalidad = jTxtNacionalidad;
+    }
+
+    public void setjTxtTitulo(JTextField jTxtTitulo) {
+        this.jTxtTitulo = jTxtTitulo;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnAtras;
