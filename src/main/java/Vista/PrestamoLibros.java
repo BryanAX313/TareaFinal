@@ -4,6 +4,9 @@
  */
 package Vista;
 
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Gabriela
@@ -15,6 +18,38 @@ public class PrestamoLibros extends javax.swing.JFrame {
      */
     public PrestamoLibros() {
         initComponents();
+    }
+
+    public JButton getjBtnAtras() {
+        return jBtnAtras;
+    }
+
+    public void setjBtnAtras(JButton jBtnAtras) {
+        this.jBtnAtras = jBtnAtras;
+    }
+
+    public JButton getjBtnBuscar() {
+        return jBtnBuscar;
+    }
+
+    public void setjBtnBuscar(JButton jBtnBuscar) {
+        this.jBtnBuscar = jBtnBuscar;
+    }
+
+    public JTextField getjTxtSocio1() {
+        return jTxtSocio1;
+    }
+
+    public void setjTxtSocio1(JTextField jTxtSocio1) {
+        this.jTxtSocio1 = jTxtSocio1;
+    }
+
+    public JTextField getjTxtTituloL() {
+        return jTxtTituloL;
+    }
+
+    public void setjTxtTituloL(JTextField jTxtTituloL) {
+        this.jTxtTituloL = jTxtTituloL;
     }
 
     /**
@@ -73,11 +108,12 @@ public class PrestamoLibros extends javax.swing.JFrame {
                 .addGap(317, 317, 317))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jBtnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
-                        .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jBtnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)

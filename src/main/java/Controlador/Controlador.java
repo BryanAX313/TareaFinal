@@ -50,10 +50,8 @@ public class Controlador implements ActionListener{
         this.actulizarUbiLibro.getjTxtPiso().addActionListener(this);
         
         ///////*****Ventana Biblioteca*******////////
-        this.bibliotecaP.getjMnCrearUsuario().addActionListener(this);
         this.bibliotecaP.getjMnIngresarLibro().addActionListener(this);
         this.bibliotecaP.getjMnListaSocio().addActionListener(this);
-        this.bibliotecaP.getjMnLogIn().addActionListener(this);
         this.bibliotecaP.getjMnPrestarLibro().addActionListener(this);
         this.bibliotecaP.getjMnUbiLibro().addActionListener(this);
         
@@ -74,7 +72,7 @@ public class Controlador implements ActionListener{
         this.ingresarLibros.getjTxtNacionalidad().addActionListener(this);
         this.ingresarLibros.getjTxtTitulo().addActionListener(this);
         
-        ///////*****Ingresar Libros*******////////
+        ///////*****Ingresar Nuevo socio*******////////
         ///Botones***
         this.ingresarNuevoSocio.getjBtnAceptar().addActionListener(this);
         this.ingresarNuevoSocio.getjBtnAtras().addActionListener(this);
@@ -98,19 +96,107 @@ public class Controlador implements ActionListener{
         this.login.getjTxtApellido().addActionListener(this);
         this.login.getjTxtNombre().addActionListener(this);
         this.login.getjTxtUsuario().addActionListener(this);
+        this.login.getjBtnRegistrarse().addActionListener(this);
         
         ///////*****Ubicacion Libro*******////////
         this.ubicacionLibro.getjBtnActualizar().addActionListener(this);
         this.ubicacionLibro.getjBtnAtras().addActionListener(this);
         this.ubicacionLibro.getjBtnBorrar().addActionListener(this);
         this.ubicacionLibro.getjBtnAceptar().addActionListener(this);
+        ///////*****Prestamos Libro*******////////
+        this.prestamosLibros.getjBtnBuscar().addActionListener(this);
+        this.prestamosLibros.getjBtnAtras().addActionListener(this);
+        this.prestamosLibros.getjTxtSocio1().addActionListener(this);
+        this.prestamosLibros.getjTxtTituloL().addActionListener(this);
         
     }
     
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+//login
+        if(e.getSource().equals(login.getjBtnAceptar())){
+           login.dispose();
+           bibliotecaP.show();
+       }
+        if(e.getSource().equals(login.getjBtnRegistrarse())){
+           login.dispose();
+           ingresarNuevoSocio.show();
+       }
+        
+//BibliotecaP
+        
+        if(e.getSource().equals(bibliotecaP.getjMnUbiLibro())){
+           bibliotecaP.dispose();
+           ubicacionLibro.show();
+       }
+        if(e.getSource().equals(bibliotecaP.getjMnPrestarLibro())){
+           bibliotecaP.dispose();
+           prestamosLibros.show();
+       }
+        if(e.getSource().equals(bibliotecaP.getjMnListaSocio())){
+            bibliotecaP.dispose();
+            conocerSocios.show();
+       }if(e.getSource().equals(bibliotecaP.getjMnIngresarLibro())){
+            bibliotecaP.dispose();
+            ingresarLibros.show();
+       }
+       
+ //IngresarNuevoSocio
+        if(e.getSource().equals(ingresarNuevoSocio.getjBtnAtras())){
+           ingresarNuevoSocio.dispose();
+           login.show();
+       }
+        if(e.getSource().equals(ingresarNuevoSocio.getjBtnAceptar())){
+           
+       }
+        if(e.getSource().equals(ingresarNuevoSocio.getjBtnNuevo())){
+           
+       }
+//ConocerSocios
+        if(e.getSource().equals(conocerSocios.getjBtnAtras())){
+           conocerSocios.dispose();
+           bibliotecaP.show();
+       }
+        if(e.getSource().equals(conocerSocios.getjBtnActualizar())){
+           
+       }
+        if(e.getSource().equals(conocerSocios.getjBtnAceptar())){
+           ;
+       }
+//IngresarLibros
+        if(e.getSource().equals(ingresarLibros.getjBtnAtras())){
+           ingresarLibros.dispose();
+           bibliotecaP.show();
+       }
+        if(e.getSource().equals(ingresarLibros.getjBtnGuardar())){
+           
+       }
+        if(e.getSource().equals(ingresarLibros.getjBtnNuevo())){
+           
+       }
+//PrestamoLibro
+        if(e.getSource().equals(prestamosLibros.getjBtnAtras())){
+           prestamosLibros.dispose();
+           bibliotecaP.show();
+       }
+        if(e.getSource().equals(prestamosLibros.getjBtnBuscar())){
+           
+       }
+//UbicacionLibro1
+        if(e.getSource().equals(ubicacionLibro.getjBtnAtras())){
+           ubicacionLibro.dispose();
+           bibliotecaP.show();
+       }
+        if(e.getSource().equals(ubicacionLibro.getjBtnBorrar())){
+           
+       }
+        if(e.getSource().equals(ubicacionLibro.getjBtnActualizar())){
+           
+       }
+        if(e.getSource().equals(ubicacionLibro.getjBtnAceptar())){
+          
+       }
     }
     
 }

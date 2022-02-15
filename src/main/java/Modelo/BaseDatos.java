@@ -61,22 +61,7 @@ public class BaseDatos {
         }
         return librosEscritos;
     }
-    public boolean Prestamo(Socio socioPrestamo,Libro libroPrestamo){
-        boolean completado=false;
-        for (int i = 0; i <socios.size(); i++) {
-            if (socios.get(i).getCedulaId().equals(socioPrestamo.getCedulaId())) {
-                String Prestarlibro=buscarLibro(libroPrestamo.getCodigo());
-                if (Prestarlibro.equals("No encontrado")) {
-                    completado=false;
-                }else{
-                    socios.get(i).getLibrosAdquiridos().add(libroPrestamo);
-                    librosTotal.get(Integer.parseInt(Prestarlibro)).setDisponibilidad(true);
-                    completado=true;
-                }
-            }
-        }
-        return completado;
-    }
+   
     public String buscarLibro(String codigo){
         String posicionlibroBuscado="";
         for (int i = 0; i <librosTotal.size(); i++) {
@@ -88,14 +73,14 @@ public class BaseDatos {
         }      
        return posicionlibroBuscado; 
     }
-    public ArrayList sociosConLibros(){
-        ArrayList<Socio> socioPrestamistas=new ArrayList();
-        for (int i = 0; i < socios.size(); i++) {
-            if (socios.get(i).getLibrosAdquiridos().size()!=0) {
-                socioPrestamistas.add(socios.get(i));
+    public ArrayList LibrosDisponibles(){
+        ArrayList<Libro> librosDisponibles=new ArrayList();
+        for (int i = 0; i <librosTotal.size(); i++) {
+            if (librosTotal.get(i).isDisponibilidad()==true) {
+                librosDisponibles.add(librosTotal.get(i));
             }
         }
-        return socioPrestamistas;
+        return librosDisponibles;
     }
 
     public ArrayList<Autor> getAutores() {

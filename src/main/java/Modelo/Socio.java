@@ -15,7 +15,7 @@ public class Socio {
     private String[] tipoVivienda ={"Casa","Departamento","Oficina"};
     private String cedulaId,nombre,apellido1,apellido2,telefonoMovil,telefonoConvencional;
     private ArrayList<Libro> librosAdquiridos=new ArrayList();
-    private Direccion direccion;
+    private ArrayList<Direccion> direcciones=new ArrayList();
 
     public Socio(int numeroLibros, String cedulaId, String nombre, String apellido1, String apellido2, String telefonoMovil, String telefonoConvencional, Direccion direccion) {
         this.numeroLibros = numeroLibros;
@@ -25,7 +25,21 @@ public class Socio {
         this.apellido2 = apellido2;
         this.telefonoMovil = telefonoMovil;
         this.telefonoConvencional = telefonoConvencional;
-        this.direccion = direccion;
+
+    }
+    public int agregarDireccion(Direccion di){
+        int estado =0;
+        for (int i = 0; i <direcciones.size(); i++) {
+            if (di==direcciones.get(i)) {
+                estado=1;
+            }
+        }
+        if (estado==0) {
+            direcciones.add(di);
+            estado=1;
+           
+        }
+        return estado;
     }
 
     public int getNumeroLibros() {
@@ -100,14 +114,15 @@ public class Socio {
         this.librosAdquiridos = librosAdquiridos;
     }
 
-    public Direccion getDireccion() {
-        return direccion;
+    public ArrayList<Direccion> getDirecciones() {
+        return direcciones;
     }
 
-    public void setDireccion(Direccion direccion) {
-        this.direccion = direccion;
+    public void setDirecciones(ArrayList<Direccion> direcciones) {
+        this.direcciones = direcciones;
     }
-    
+
+
     
     
 }

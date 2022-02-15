@@ -12,7 +12,6 @@ import java.util.ArrayList;
  */
 public class Autor {
     private String nombre,alias,nacionalidad,fechaNacimiento;
-    private ArrayList<Libro> librosEscritos=new ArrayList();
 
     public Autor(String nombre, String alias, String nacionalidad, String fechaNacimiento) {
         this.nombre = nombre;
@@ -53,12 +52,6 @@ public class Autor {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public ArrayList<Libro> getLibrosEscritos() {
-        return librosEscritos;
-    }
 
-    public void setLibrosEscritos(ArrayList<Libro> librosEscritos) {
-        this.librosEscritos = librosEscritos;
-    }
     
 }

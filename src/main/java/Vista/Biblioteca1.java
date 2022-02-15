@@ -33,8 +33,6 @@ public class Biblioteca1 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMnCrearUsuario = new javax.swing.JMenuItem();
-        jMnLogIn = new javax.swing.JMenuItem();
         jMnListaSocio = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMnPrestarLibro = new javax.swing.JMenuItem();
@@ -72,14 +70,6 @@ public class Biblioteca1 extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Usuario");
-
-        jMnCrearUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMnCrearUsuario.setText("Crear Usuario");
-        jMenu1.add(jMnCrearUsuario);
-
-        jMnLogIn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMnLogIn.setText("Log In");
-        jMenu1.add(jMnLogIn);
 
         jMnListaSocio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMnListaSocio.setText("Conocer Lista de socios");
@@ -163,9 +153,7 @@ public class Biblioteca1 extends javax.swing.JFrame {
         });
     }
 
-    public JMenuItem getjMnCrearUsuario() {
-        return jMnCrearUsuario;
-    }
+   
 
     public JMenuItem getjMnIngresarLibro() {
         return jMnIngresarLibro;
@@ -175,9 +163,7 @@ public class Biblioteca1 extends javax.swing.JFrame {
         return jMnListaSocio;
     }
 
-    public JMenuItem getjMnLogIn() {
-        return jMnLogIn;
-    }
+ 
 
     public JMenuItem getjMnPrestarLibro() {
         return jMnPrestarLibro;
@@ -194,10 +180,8 @@ public class Biblioteca1 extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMnCrearUsuario;
     private javax.swing.JMenuItem jMnIngresarLibro;
     private javax.swing.JMenuItem jMnListaSocio;
-    private javax.swing.JMenuItem jMnLogIn;
     private javax.swing.JMenuItem jMnPrestarLibro;
     private javax.swing.JMenuItem jMnUbiLibro;
     private javax.swing.JPanel jPanel1;

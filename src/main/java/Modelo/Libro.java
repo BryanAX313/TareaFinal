@@ -12,18 +12,35 @@ import java.util.ArrayList;
  */
 public class Libro {
     private String codigo,titulo;
-    private ArrayList<Autor> autores =new ArrayList(); //Dice autor o autores por eso esta como un array list
+    private ArrayList<Autor> autores =new ArrayList(); /// 
+    
     private boolean disponibilidad;
+    
     private Ubicacion ubicacion ;
+    
     private String[] area={"Filosofia","Religion","Ciencias Sociales","Filogia","Ciencias Naturales","Tecnicas","Ciencias Practicas","Arte y Literatura","Historia"};
-
+    
     public Libro(String codigo, String titulo, boolean disponibilidad, Ubicacion ubicacion) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.disponibilidad = disponibilidad;
         this.ubicacion = ubicacion;
     }
+
     
+    public int agregarAutor(Autor di){
+        int estado =0;
+        for (int i = 0; i <autores.size(); i++) {
+            if (di==autores.get(i)) {
+                estado=1;
+            }
+        }
+        if (estado==0) {
+           autores.add(di);
+            estado=1;      
+        }
+        return estado;
+    }
 
     public String getCodigo() {
         return codigo;
