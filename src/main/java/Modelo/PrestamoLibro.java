@@ -46,8 +46,10 @@ public class PrestamoLibro {
                     completado=false;
                 }else{
                     socios.get(i).getLibrosAdquiridos().add(libroPrestamo);
-                    librosTotal.get(Integer.parseInt(Prestarlibro)).setDisponibilidad(false);
-                    completado=true;
+                    if (librosTotal.get(Integer.parseInt(Prestarlibro)).isDisponibilidad()==true) {
+                        librosTotal.get(Integer.parseInt(Prestarlibro)).setDisponibilidad(false);
+                        completado=true;
+                    }
                 }
             }
         }
