@@ -8,11 +8,13 @@ import Controlador.Controlador;
 import Vista.ActualizarUbiLibro;
 import Vista.Biblioteca1;
 import Vista.ConocerSocios;
+import Vista.DireccionSocio;
 import Vista.IngresarLibros;
 import Vista.IngresarNuevoSocio;
 import Vista.Login;
 import Vista.PrestamoLibros;
 import Vista.UbicacionLibro1;
+import Vista.Autor1;
 
 /**
  *
@@ -33,7 +35,9 @@ public class Principal {
        IngresarNuevoSocio ingresarNuevoSocio =new IngresarNuevoSocio();
        PrestamoLibros prestamosLibros=new PrestamoLibros();
        UbicacionLibro1 ubicacionLibro=new UbicacionLibro1();
-       Controlador control=new Controlador( actulizarUbiLibro, bibliotecaP, conocerSocios, ingresarLibros, ingresarNuevoSocio,login,prestamosLibros, ubicacionLibro);
+       DireccionSocio direccionSocio =new DireccionSocio();
+       Autor1 autor =new Autor1();
+       Controlador control=new Controlador( actulizarUbiLibro, bibliotecaP, conocerSocios, ingresarLibros, ingresarNuevoSocio,login,prestamosLibros, ubicacionLibro, direccionSocio,autor);
     }
     
 }

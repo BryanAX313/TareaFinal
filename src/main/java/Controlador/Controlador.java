@@ -6,8 +6,10 @@ package Controlador;
 
 import Modelo.BaseDatos;
 import Vista.ActualizarUbiLibro;
+import Vista.Autor1;
 import Vista.Biblioteca1;
 import Vista.ConocerSocios;
+import Vista.DireccionSocio;
 import Vista.IngresarLibros;
 import Vista.IngresarNuevoSocio;
 import Vista.Login;
@@ -30,8 +32,11 @@ public class Controlador implements ActionListener{
     private Login login;
     private PrestamoLibros prestamosLibros;
     private UbicacionLibro1 ubicacionLibro;
+    private DireccionSocio direccionSocio;
+    private Autor1 autor;
+    private ActualizarUbiLibro actualizarubiLibro;
 
-    public Controlador(ActualizarUbiLibro actulizarUbiLibro, Biblioteca1 bibliotecaP, ConocerSocios conocerSocios, IngresarLibros ingresarLibros, IngresarNuevoSocio ingresarNuevoSocio, Login login, PrestamoLibros prestamosLibros, UbicacionLibro1 ubicacionLibro) {
+    public Controlador(ActualizarUbiLibro actulizarUbiLibro, Biblioteca1 bibliotecaP, ConocerSocios conocerSocios, IngresarLibros ingresarLibros, IngresarNuevoSocio ingresarNuevoSocio, Login login, PrestamoLibros prestamosLibros, UbicacionLibro1 ubicacionLibro,DireccionSocio direccionSocio,Autor1 autor) {
         this.actulizarUbiLibro = actulizarUbiLibro;
         this.bibliotecaP = bibliotecaP;
         this.conocerSocios = conocerSocios;
@@ -40,14 +45,11 @@ public class Controlador implements ActionListener{
         this.login = login;
         this.prestamosLibros = prestamosLibros;
         this.ubicacionLibro = ubicacionLibro;
+        this.direccionSocio = direccionSocio;
+        this.autor=autor;
         ///////*****Ventana Actualizar Ubicacion Libro*******////////
-        //Botones***
         this.actulizarUbiLibro.getjBtnAceptar().addActionListener(this);
         this.actulizarUbiLibro.getjBtnAtras().addActionListener(this);
-        //TextField****
-        this.actulizarUbiLibro.getjTxtEstante().addActionListener(this);
-        this.actulizarUbiLibro.getjTxtHabitacion().addActionListener(this);
-        this.actulizarUbiLibro.getjTxtPiso().addActionListener(this);
         
         ///////*****Ventana Biblioteca*******////////
         this.bibliotecaP.getjMnIngresarLibro().addActionListener(this);
@@ -61,54 +63,39 @@ public class Controlador implements ActionListener{
         this.conocerSocios.getjBtnAtras().addActionListener(this);
         
         ///////*****Ingresar Libros*******////////
-        ///Botones***
         this.ingresarLibros.getjBtnAtras().addActionListener(this);
         this.ingresarLibros.getjBtnGuardar().addActionListener(this);
         this.ingresarLibros.getjBtnNuevo().addActionListener(this);
-        ///TextField***
-        this.ingresarLibros.getjTxtAlias().addActionListener(this);
-        this.ingresarLibros.getjTxtCodigoLibro().addActionListener(this);
-        this.ingresarLibros.getjTxtFecha().addActionListener(this);
-        this.ingresarLibros.getjTxtNacionalidad().addActionListener(this);
-        this.ingresarLibros.getjTxtTitulo().addActionListener(this);
-        
+        this.ingresarLibros.getjBtnAutor().addActionListener(this);
+        this.ingresarLibros.getjBtnEliminar().addActionListener(this);
+       
         ///////*****Ingresar Nuevo socio*******////////
-        ///Botones***
         this.ingresarNuevoSocio.getjBtnAceptar().addActionListener(this);
-        this.ingresarNuevoSocio.getjBtnAtras().addActionListener(this);
-        this.ingresarNuevoSocio.getjBtnNuevo().addActionListener(this);
-        ///TextField///
-        this.ingresarNuevoSocio.getjTxtApellido1().addActionListener(this);
-        this.ingresarNuevoSocio.getjTxtApellido2().addActionListener(this);
-        this.ingresarNuevoSocio.getjTxtConvencional().addActionListener(this);
-        this.ingresarNuevoSocio.getjTxtCprincipal().addActionListener(this);
-        this.ingresarNuevoSocio.getjTxtCsecundaria().addActionListener(this);
-        this.ingresarNuevoSocio.getjTxtMovil().addActionListener(this);
-        this.ingresarNuevoSocio.getjTxtNombre1().addActionListener(this);
-        this.ingresarNuevoSocio.getjTxtNombre2().addActionListener(this);
-        this.ingresarNuevoSocio.getjTxtNumeracion().addActionListener(this);
-        this.ingresarNuevoSocio.getjTxtUsuario().addActionListener(this);
-        
+        this.ingresarNuevoSocio.getjBtnCancelar().addActionListener(this);
+
+        ///////****DireccionSocio****//////////////
+        this.direccionSocio.getjBtnAtras().addActionListener(this);
+        this.direccionSocio.getjBtnGuardar().addActionListener(this);
+       
         ///////*****Login*******////////
-        ///Botones***
         this.login.getjBtnAceptar().addActionListener(this);
-        ///TextField***
-        this.login.getjTxtApellido().addActionListener(this);
-        this.login.getjTxtNombre().addActionListener(this);
-        this.login.getjTxtUsuario().addActionListener(this);
-        this.login.getjBtnRegistrarse().addActionListener(this);
-        
+       
         ///////*****Ubicacion Libro*******////////
         this.ubicacionLibro.getjBtnActualizar().addActionListener(this);
         this.ubicacionLibro.getjBtnAtras().addActionListener(this);
         this.ubicacionLibro.getjBtnBorrar().addActionListener(this);
         this.ubicacionLibro.getjBtnAceptar().addActionListener(this);
+        
         ///////*****Prestamos Libro*******////////
         this.prestamosLibros.getjBtnBuscar().addActionListener(this);
         this.prestamosLibros.getjBtnAtras().addActionListener(this);
         this.prestamosLibros.getjTxtSocio1().addActionListener(this);
         this.prestamosLibros.getjTxtTituloL().addActionListener(this);
         
+        ///////*****Autor*******////////
+        this.autor.getjBtnAtras().addActionListener(this);
+        this.autor.getjBtnEliminar().addActionListener(this);
+        this.autor.getjBtnGuardar().addActionListener(this);
     }
     
 
@@ -143,16 +130,15 @@ public class Controlador implements ActionListener{
        }
        
  //IngresarNuevoSocio
-        if(e.getSource().equals(ingresarNuevoSocio.getjBtnAtras())){
+        if(e.getSource().equals(ingresarNuevoSocio.getjBtnCancelar())){
            ingresarNuevoSocio.dispose();
            login.show();
        }
         if(e.getSource().equals(ingresarNuevoSocio.getjBtnAceptar())){
-           
+           ingresarNuevoSocio.dispose();
+           bibliotecaP.show();
        }
-        if(e.getSource().equals(ingresarNuevoSocio.getjBtnNuevo())){
-           
-       }
+        
 //ConocerSocios
         if(e.getSource().equals(conocerSocios.getjBtnAtras())){
            conocerSocios.dispose();
@@ -175,6 +161,14 @@ public class Controlador implements ActionListener{
         if(e.getSource().equals(ingresarLibros.getjBtnNuevo())){
            
        }
+        if(e.getSource().equals(ingresarLibros.getjBtnEliminar())){
+           
+       }
+        if(e.getSource().equals(ingresarLibros.getjBtnAutor())){
+           ingresarLibros.dispose();
+           autor.show();
+       }
+        
 //PrestamoLibro
         if(e.getSource().equals(prestamosLibros.getjBtnAtras())){
            prestamosLibros.dispose();
@@ -192,10 +186,38 @@ public class Controlador implements ActionListener{
            
        }
         if(e.getSource().equals(ubicacionLibro.getjBtnActualizar())){
-           
+            ubicacionLibro.dispose();
+            actulizarUbiLibro.show();
        }
         if(e.getSource().equals(ubicacionLibro.getjBtnAceptar())){
           
+       }
+//DireccionSocio
+        if(e.getSource().equals(direccionSocio.getjBtnAtras())){
+           direccionSocio.dispose();
+           ingresarNuevoSocio.show();
+        }
+        if(e.getSource().equals(direccionSocio.getjBtnGuardar())){
+           
+       }
+///Autor/-*/**/*/*
+        if(e.getSource().equals(autor.getjBtnAtras())){
+           autor.dispose();
+           ingresarLibros.show();
+       }
+    //    if(e.getSource().equals(direccionSocio.getjBtnEliminar())){
+           
+      // }
+        if(e.getSource().equals(direccionSocio.getjBtnGuardar())){
+           
+       }
+////Actualizar Abucacion de Libro
+     if(e.getSource().equals(actulizarUbiLibro.getjBtnAtras())){
+          actulizarUbiLibro.dispose();
+           ubicacionLibro.show();
+       }
+        if(e.getSource().equals(actulizarUbiLibro.getjBtnAtras())){
+           
        }
     }
     
