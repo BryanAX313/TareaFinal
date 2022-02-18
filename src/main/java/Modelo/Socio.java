@@ -11,22 +11,30 @@ import java.util.ArrayList;
  * @author braya
  */
 public class Socio {
-    private int numeroLibros;
-    private String[] tipoVivienda ={"Casa","Departamento","Oficina"};
+    private String tipoVivienda,usuario;
     private String cedulaId,nombre,apellido1,apellido2,telefonoMovil,telefonoConvencional;
     private ArrayList<Libro> librosAdquiridos=new ArrayList();
     private ArrayList<Direccion> direcciones=new ArrayList();
 
-    public Socio(int numeroLibros, String cedulaId, String nombre, String apellido1, String apellido2, String telefonoMovil, String telefonoConvencional, Direccion direccion) {
-        this.numeroLibros = numeroLibros;
+    public Socio(String tipoVivienda, String cedulaId, String nombre, String apellido1, String apellido2, String telefonoMovil, String telefonoConvencional,String usuario) {
+        this.tipoVivienda = tipoVivienda;
         this.cedulaId = cedulaId;
         this.nombre = nombre;
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
         this.telefonoMovil = telefonoMovil;
         this.telefonoConvencional = telefonoConvencional;
-
+        this.usuario=usuario;
     }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+  
     public int agregarDireccion(Direccion di){
         int estado =0;
         for (int i = 0; i <direcciones.size(); i++) {
@@ -42,21 +50,15 @@ public class Socio {
         return estado;
     }
 
-    public int getNumeroLibros() {
-        return numeroLibros;
-    }
-
-    public void setNumeroLibros(int numeroLibros) {
-        this.numeroLibros = numeroLibros;
-    }
-
-    public String[] getTipoVivienda() {
+    public String getTipoVivienda() {
         return tipoVivienda;
     }
 
-    public void setTipoVivienda(String[] tipoVivienda) {
+    public void setTipoVivienda(String tipoVivienda) {
         this.tipoVivienda = tipoVivienda;
     }
+
+  
 
     public String getCedulaId() {
         return cedulaId;

@@ -24,17 +24,36 @@ public class BaseDatos {
         }
         return instancia;       
     }
-    public boolean añadiSocio(Socio nuevoSocio){
-        boolean completado=false;
+    public int buscarSocio(String usuario,String apellido,String nombre){
+        int compleatdo=0;
         for (int i = 0; i <socios.size(); i++) {
-            if (socios.get(i).equals(nuevoSocio)) {
-                completado=false;
-            }else{
-                socios.add(nuevoSocio);
-                completado=true;
+            if (socios.get(i).getApellido1().equals(apellido)&&socios.get(i).getNombre().equals(nombre)&&socios.get(i).getUsuario().equals(usuario)) {
+               compleatdo=1; 
             }
         }
-        
+        return compleatdo;
+    }
+    public int añadiSocio(Socio nuevoSocio){
+        int completado=0, existe=0, noeExiste=0;
+        System.out.println("No entra");
+        for (int i = 0; i <socios.size(); i++) {
+            if (socios.get(i).equals(nuevoSocio)) {             
+                existe=1;
+            }else{
+                noeExiste=1;
+            }         
+        }
+        if (noeExiste==1) {
+            socios.add(nuevoSocio);
+            completado=1;
+        }else{
+            if (existe==0) {
+                socios.add(nuevoSocio);
+                completado=1;
+            }else{
+                completado=0;
+            }
+        }    
         return completado;
     }
     public boolean añadiLibro(Libro nuevolibro){
@@ -61,7 +80,7 @@ public class BaseDatos {
         }
         return librosEscritos;
     }
-   
+    
     public String buscarLibro(String codigo){
         String posicionlibroBuscado="";
         for (int i = 0; i <librosTotal.size(); i++) {

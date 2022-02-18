@@ -5,6 +5,8 @@
 package Controlador;
 
 import Modelo.BaseDatos;
+import Modelo.Direccion;
+import Modelo.Socio;
 import Vista.ActualizarUbiLibro;
 import Vista.Autor1;
 import Vista.Biblioteca1;
@@ -17,6 +19,7 @@ import Vista.PrestamoLibros;
 import Vista.UbicacionLibro1;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -47,16 +50,21 @@ public class Controlador implements ActionListener{
         this.ubicacionLibro = ubicacionLibro;
         this.direccionSocio = direccionSocio;
         this.autor=autor;
+        
         ///////*****Ventana Actualizar Ubicacion Libro*******////////
         this.actulizarUbiLibro.getjBtnAceptar().addActionListener(this);
         this.actulizarUbiLibro.getjBtnAtras().addActionListener(this);
         
         ///////*****Ventana Biblioteca*******////////
+        this.bibliotecaP.getjBtnBuscar().addActionListener(this);
         this.bibliotecaP.getjMnIngresarLibro().addActionListener(this);
+        this.bibliotecaP.getjMnIngresarUs().addActionListener(this);
         this.bibliotecaP.getjMnListaSocio().addActionListener(this);
         this.bibliotecaP.getjMnPrestarLibro().addActionListener(this);
+        this.bibliotecaP.getjMnSociosNoConfiables().addActionListener(this);
         this.bibliotecaP.getjMnUbiLibro().addActionListener(this);
-        
+        this.bibliotecaP.getjMnNuevoSocio().addActionListener(this);
+            
         ///////*****Conocer Socios*******////////
         this.conocerSocios.getjBtnAceptar().addActionListener(this);
         this.conocerSocios.getjBtnActualizar().addActionListener(this);
@@ -79,6 +87,8 @@ public class Controlador implements ActionListener{
        
         ///////*****Login*******////////
         this.login.getjBtnAceptar().addActionListener(this);
+        this.login.getjBtnCancelar().addActionListener(this);
+        this.login.getjBtnRegistrarse().addActionListener(this);
        
         ///////*****Ubicacion Libro*******////////
         this.ubicacionLibro.getjBtnActualizar().addActionListener(this);
@@ -103,40 +113,94 @@ public class Controlador implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 //login
         if(e.getSource().equals(login.getjBtnAceptar())){
-           login.dispose();
-           bibliotecaP.show();
+            if (baseDatos.buscarSocio(login.getjTxtUsuario().getText(),login.getjTxtApellido().getText(), login.getjTxtNombre().getText())==1) {
+                JOptionPane.showMessageDialog(null, "Completado");
+                limpiarLogin();
+                login.dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Intente Denuevo");
+                limpiarLogin();
+            }        
+            bibliotecaP.show();
        }
         if(e.getSource().equals(login.getjBtnRegistrarse())){
            login.dispose();
-           ingresarNuevoSocio.show();
+           ingresarNuevoSocio.show();          
+           limpiarLogin();
        }
+        if (e.getSource().equals(login.getjBtnCancelar())) {
+            login.dispose();
+            limpiarLogin();
+            bibliotecaP.show();
+        }
         
 //BibliotecaP
         
+        if (e.getSource().equals(bibliotecaP.getjMnNuevoSocio())){
+            ingresarNuevoSocio.show();
+        }
+        if (e.getSource().equals(bibliotecaP.getjMnIngresarUs())) {
+            login.show();
+        }
+        
         if(e.getSource().equals(bibliotecaP.getjMnUbiLibro())){
-           bibliotecaP.dispose();
+          // bibliotecaP.dispose();
            ubicacionLibro.show();
        }
         if(e.getSource().equals(bibliotecaP.getjMnPrestarLibro())){
-           bibliotecaP.dispose();
+           //bibliotecaP.dispose();
            prestamosLibros.show();
        }
         if(e.getSource().equals(bibliotecaP.getjMnListaSocio())){
-            bibliotecaP.dispose();
+          //  bibliotecaP.dispose();
             conocerSocios.show();
        }if(e.getSource().equals(bibliotecaP.getjMnIngresarLibro())){
-            bibliotecaP.dispose();
+         //   bibliotecaP.dispose();
             ingresarLibros.show();
        }
+       
+       if(e.getSource().equals(bibliotecaP.getjMnSociosNoConfiables())){
+           conocerSocios.show();
+       }
+       
        
  //IngresarNuevoSocio
         if(e.getSource().equals(ingresarNuevoSocio.getjBtnCancelar())){
            ingresarNuevoSocio.dispose();
-           login.show();
+           bibliotecaP.show();
+           limpiarNuevoSocio();
        }
         if(e.getSource().equals(ingresarNuevoSocio.getjBtnAceptar())){
-           ingresarNuevoSocio.dispose();
-           bibliotecaP.show();
+            ingresarNuevoSocio.dispose();
+            bibliotecaP.show();
+            String tipoVivienda;
+            if (ingresarNuevoSocio.getjComboBox1().getSelectedIndex()==1) {
+                tipoVivienda="Casa";
+            }else{
+                if(ingresarNuevoSocio.getjComboBox1().getSelectedIndex()==2){
+                  tipoVivienda="Departamento";  
+                }else{
+                    if (ingresarNuevoSocio.getjComboBox1().getSelectedIndex()==3) {
+                       tipoVivienda="Oficiona";  
+                    }else{
+                        tipoVivienda="Empresa"; 
+                    }
+                }
+            }
+            Socio auxSocio =new Socio(tipoVivienda, ingresarNuevoSocio.getjTxtCI().getText(), ingresarNuevoSocio.getjTxtNombre1().getText()
+                    , ingresarNuevoSocio.getjTxtApellido1().getText(), ingresarNuevoSocio.getjTxtApellido2().getText()
+                    , ingresarNuevoSocio.getjTxtMovil().getText(),ingresarNuevoSocio.getjTxtConvencional().getText(),ingresarNuevoSocio.getjTxtUsuario().getText());
+            
+            auxSocio.getDirecciones().add(new Direccion(ingresarNuevoSocio.getjTxtCprincipal().getText()
+                    ,ingresarNuevoSocio.getjTxtCsecuandaria().getText(), ingresarNuevoSocio.getjTxtNumeracion().getText()));
+
+            if (baseDatos.añadiSocio(auxSocio)==1) {
+               JOptionPane.showMessageDialog(null, "Completado");
+            }else{
+                JOptionPane.showMessageDialog(null, "ERROR");
+            }
+            limpiarNuevoSocio();
+
        }
         
 //ConocerSocios
@@ -220,5 +284,21 @@ public class Controlador implements ActionListener{
            
        }
     }
-    
+    private void limpiarNuevoSocio(){
+    ingresarNuevoSocio.getjTxtApellido1().setText("");
+    ingresarNuevoSocio.getjTxtCI().setText("");
+    ingresarNuevoSocio.getjTxtConvencional().setText("");
+    ingresarNuevoSocio.getjTxtCprincipal().setText("");
+    ingresarNuevoSocio.getjTxtCsecuandaria().setText("");
+    ingresarNuevoSocio.getjTxtMovil().setText("");
+    ingresarNuevoSocio.getjTxtNombre1().setText("");
+    ingresarNuevoSocio.getjTxtApellido2().setText("");
+    ingresarNuevoSocio.getjTxtNumeracion().setText("");
+    ingresarNuevoSocio.getjTxtUsuario().setText("");
+    }
+    private void limpiarLogin(){
+        login.getjTxtApellido().setText("");
+        login.getjTxtNombre().setText("");
+        login.getjTxtUsuario().setText("");
+    }
 }

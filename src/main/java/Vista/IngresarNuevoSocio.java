@@ -37,14 +37,14 @@ public class IngresarNuevoSocio extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTxtNombre1 = new javax.swing.JTextField();
-        jTxtNombre2 = new javax.swing.JTextField();
+        jTxtApellido2 = new javax.swing.JTextField();
         jTxtApellido1 = new javax.swing.JTextField();
         jTxtMovil = new javax.swing.JTextField();
         jTxtConvencional = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTxtUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTxtApellido3 = new javax.swing.JTextField();
+        jTxtCI = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -87,15 +87,15 @@ public class IngresarNuevoSocio extends javax.swing.JFrame {
         jTxtNombre1.setBackground(new java.awt.Color(233, 247, 245));
         jPanel1.add(jTxtNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 31, 215, -1));
 
-        jTxtNombre2.setBackground(new java.awt.Color(233, 247, 245));
-        jTxtNombre2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jTxtNombre2.setText("      ( OPCIONAL )");
-        jTxtNombre2.addActionListener(new java.awt.event.ActionListener() {
+        jTxtApellido2.setBackground(new java.awt.Color(233, 247, 245));
+        jTxtApellido2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jTxtApellido2.setText("      ( OPCIONAL )");
+        jTxtApellido2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTxtNombre2ActionPerformed(evt);
+                jTxtApellido2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTxtNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 31, 127, -1));
+        jPanel1.add(jTxtApellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(508, 31, 127, -1));
 
         jTxtApellido1.setBackground(new java.awt.Color(233, 247, 245));
         jPanel1.add(jTxtApellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 61, 215, -1));
@@ -116,11 +116,11 @@ public class IngresarNuevoSocio extends javax.swing.JFrame {
         jPanel1.add(jTxtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 91, 488, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel4.setText("Segundo Nombres:");
+        jLabel4.setText("Segundo Apellido:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 33, -1, -1));
 
-        jTxtApellido3.setBackground(new java.awt.Color(233, 247, 245));
-        jPanel1.add(jTxtApellido3, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 61, 226, -1));
+        jTxtCI.setBackground(new java.awt.Color(233, 247, 245));
+        jPanel1.add(jTxtCI, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 61, 226, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setText("C.I :");
@@ -248,9 +248,9 @@ public class IngresarNuevoSocio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTxtNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNombre2ActionPerformed
+    private void jTxtApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtApellido2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtNombre2ActionPerformed
+    }//GEN-LAST:event_jTxtApellido2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,7 +304,7 @@ public class IngresarNuevoSocio extends javax.swing.JFrame {
     }
 
     public JTextField getjTxtApellido3() {
-        return jTxtApellido3;
+        return jTxtCI;
     }
 
     public JTextField getjTxtConvencional() {
@@ -327,8 +327,8 @@ public class IngresarNuevoSocio extends javax.swing.JFrame {
         return jTxtNombre1;
     }
 
-    public JTextField getjTxtNombre2() {
-        return jTxtNombre2;
+    public JTextField getjTxtApellido2() {
+        return jTxtApellido2;
     }
 
     public JTextField getjTxtNumeracion() {
@@ -337,6 +337,10 @@ public class IngresarNuevoSocio extends javax.swing.JFrame {
 
     public JTextField getjTxtUsuario() {
         return jTxtUsuario;
+    }
+
+    public JTextField getjTxtCI() {
+        return jTxtCI;
     }
 
 
@@ -362,13 +366,13 @@ public class IngresarNuevoSocio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTxtApellido1;
-    private javax.swing.JTextField jTxtApellido3;
+    private javax.swing.JTextField jTxtApellido2;
+    private javax.swing.JTextField jTxtCI;
     private javax.swing.JTextField jTxtConvencional;
     private javax.swing.JTextField jTxtCprincipal;
     private javax.swing.JTextField jTxtCsecuandaria;
     private javax.swing.JTextField jTxtMovil;
     private javax.swing.JTextField jTxtNombre1;
-    private javax.swing.JTextField jTxtNombre2;
     private javax.swing.JTextField jTxtNumeracion;
     private javax.swing.JTextField jTxtUsuario;
     // End of variables declaration//GEN-END:variables

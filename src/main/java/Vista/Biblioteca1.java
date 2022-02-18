@@ -6,6 +6,8 @@ package Vista;
 
 
 
+import javax.swing.JButton;
+import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
 
@@ -30,18 +32,31 @@ public class Biblioteca1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jTxtBuscar = new javax.swing.JTextField();
+        jBtnBuscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMnListaSocio = new javax.swing.JMenuItem();
+        jMenu = new javax.swing.JMenu();
+        jMnNuevoSocio = new javax.swing.JMenuItem();
+        jMnIngresarUs = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMnPrestarLibro = new javax.swing.JMenuItem();
         jMnIngresarLibro = new javax.swing.JMenuItem();
         jMnUbiLibro = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jMnSociosNoConfiables = new javax.swing.JMenuItem();
+        jMnListaSocio = new javax.swing.JMenuItem();
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,16 +74,16 @@ public class Biblioteca1 extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
         jLabel1.getAccessibleContext().setAccessibleDescription("");
 
-        jTextField1.setBackground(new java.awt.Color(237, 187, 135));
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        jTextField1.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 500, 40));
+        jTxtBuscar.setBackground(new java.awt.Color(237, 187, 135));
+        jTxtBuscar.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
+        jTxtBuscar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+        jPanel1.add(jTxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 500, 40));
 
-        jButton1.setBackground(new java.awt.Color(241, 169, 89));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
-        jButton1.setText("Buscar");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 110, 40));
+        jBtnBuscar.setBackground(new java.awt.Color(241, 169, 89));
+        jBtnBuscar.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
+        jBtnBuscar.setText("Buscar");
+        jBtnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jBtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 110, 40));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\braya\\Documents\\NetBeansProjects\\AF-AsimbayaBryan-Biblioteca\\src\\main\\java\\Imagenes\\Biblio.jpg")); // NOI18N
@@ -77,32 +92,31 @@ public class Biblioteca1 extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(241, 169, 89));
 
-        jMenu1.setBackground(new java.awt.Color(247, 191, 125));
-        jMenu1.setText("Usuario");
+        jMenu.setBackground(new java.awt.Color(247, 191, 125));
+        jMenu.setText("Usuario");
 
-        jMnListaSocio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMnListaSocio.setText("Conocer Lista de socios");
-        jMnListaSocio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMnListaSocioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMnListaSocio);
+        jMnNuevoSocio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnNuevoSocio.setText("Nuevo Socio");
+        jMenu.add(jMnNuevoSocio);
 
-        jMenuBar1.add(jMenu1);
+        jMnIngresarUs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnIngresarUs.setText("Ingresar ");
+        jMenu.add(jMnIngresarUs);
+
+        jMenuBar1.add(jMenu);
 
         jMenu2.setBackground(new java.awt.Color(247, 191, 125));
         jMenu2.setText("Libro");
 
-        jMnPrestarLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnPrestarLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMnPrestarLibro.setText("Prestar Libro");
         jMenu2.add(jMnPrestarLibro);
 
-        jMnIngresarLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnIngresarLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMnIngresarLibro.setText("Ingresar Libro");
         jMenu2.add(jMnIngresarLibro);
 
-        jMnUbiLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_G, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnUbiLibro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMnUbiLibro.setText("Ubicacion Libro");
         jMnUbiLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +126,24 @@ public class Biblioteca1 extends javax.swing.JFrame {
         jMenu2.add(jMnUbiLibro);
 
         jMenuBar1.add(jMenu2);
+
+        jMenu6.setBackground(new java.awt.Color(247, 191, 125));
+        jMenu6.setText("Biblioteca");
+
+        jMnSociosNoConfiables.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_J, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnSociosNoConfiables.setText("Socios no Confiables");
+        jMenu6.add(jMnSociosNoConfiables);
+
+        jMnListaSocio.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnListaSocio.setText("Conocer Lista de socios");
+        jMnListaSocio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnListaSocioActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMnListaSocio);
+
+        jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
 
@@ -137,9 +169,6 @@ public class Biblioteca1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMnUbiLibroActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -157,39 +186,69 @@ public class Biblioteca1 extends javax.swing.JFrame {
         });
     }
 
-   
+    public JButton getjBtnBuscar() {
+        return jBtnBuscar;
+    }
+
+
+
+    public JMenuItem getjMnIngresar() {
+        return jMnNuevoSocio;
+    }
 
     public JMenuItem getjMnIngresarLibro() {
         return jMnIngresarLibro;
+    }
+
+    public JMenuItem getjMnIngresarUs() {
+        return jMnIngresarUs;
     }
 
     public JMenuItem getjMnListaSocio() {
         return jMnListaSocio;
     }
 
- 
-
     public JMenuItem getjMnPrestarLibro() {
         return jMnPrestarLibro;
+    }
+
+    public JMenuItem getjMnSociosNoConfiables() {
+        return jMnSociosNoConfiables;
     }
 
     public JMenuItem getjMnUbiLibro() {
         return jMnUbiLibro;
     }
+
+    public JMenuItem getjMnNuevoSocio() {
+        return jMnNuevoSocio;
+    }
+
+   
     
+   
+
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBtnBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMnIngresarLibro;
+    private javax.swing.JMenuItem jMnIngresarUs;
     private javax.swing.JMenuItem jMnListaSocio;
+    private javax.swing.JMenuItem jMnNuevoSocio;
     private javax.swing.JMenuItem jMnPrestarLibro;
+    private javax.swing.JMenuItem jMnSociosNoConfiables;
     private javax.swing.JMenuItem jMnUbiLibro;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTxtBuscar;
     // End of variables declaration//GEN-END:variables
 }

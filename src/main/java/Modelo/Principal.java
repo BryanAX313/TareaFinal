@@ -27,9 +27,9 @@ public class Principal {
      */
     public static void main(String[] args) {
        Login login=new Login();
-       login.setVisible(true);
        ActualizarUbiLibro  actulizarUbiLibro=new ActualizarUbiLibro();
        Biblioteca1 bibliotecaP=new Biblioteca1();
+       bibliotecaP.setVisible(true);
        ConocerSocios conocerSocios=new ConocerSocios();
        IngresarLibros ingresarLibros=new IngresarLibros();
        IngresarNuevoSocio ingresarNuevoSocio =new IngresarNuevoSocio();
