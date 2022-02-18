@@ -44,26 +44,39 @@ public class ActualizarUbiLibro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 51, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Actualizar Ubicacion Libro", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(241, 169, 89));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Actualizar Ubicacion Libro", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Lucida Handwriting", 2, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel1.setText("Numero de Piso:");
 
-        jLabel2.setFont(new java.awt.Font("Lucida Handwriting", 2, 12)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel2.setText("Numero de Habitacion:");
 
-        jLabel3.setFont(new java.awt.Font("Lucida Handwriting", 2, 12)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setText("Numero de Estante:");
 
-        jLabel4.setFont(new java.awt.Font("Lucida Handwriting", 2, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel4.setText("Area:");
 
-        jCbxArea.setFont(new java.awt.Font("Lucida Handwriting", 2, 12)); // NOI18N
+        jCbxArea.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jCbxArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Generalidades", "Filosofia", "Religion", "Ciencias Sociales", "Filologia", "Ciencias Naturales", "Tecnica y Ciencias Prácticas", "Arte y Literatura", "Historia" }));
+        jCbxArea.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCbxAreaActionPerformed(evt);
+            }
+        });
 
+        jTxtPiso.setBackground(new java.awt.Color(233, 247, 245));
+
+        jTxtHabitacion.setBackground(new java.awt.Color(233, 247, 245));
+
+        jTxtEstante.setBackground(new java.awt.Color(233, 247, 245));
+
+        jBtnAceptar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jBtnAceptar.setText("Aceptar");
 
+        jBtnAtras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jBtnAtras.setText("Atras");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -122,7 +135,7 @@ public class ActualizarUbiLibro extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -136,6 +149,10 @@ public class ActualizarUbiLibro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCbxAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbxAreaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCbxAreaActionPerformed
 
     /**
      * @param args the command line arguments

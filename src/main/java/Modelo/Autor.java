@@ -20,6 +20,11 @@ public class Autor {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    @Override
+    public String toString() {
+        return "Nombre:" + nombre + "\nAlias:" + alias ;
+    }
+
     public String getNombre() {
         return nombre;
     }

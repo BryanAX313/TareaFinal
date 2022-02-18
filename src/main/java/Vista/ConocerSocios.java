@@ -20,6 +20,14 @@ public class ConocerSocios extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getjBtnNuevo() {
+        return jBtnNuevo;
+    }
+
+    public void setjBtnNuevo(JButton jBtnNuevo) {
+        this.jBtnNuevo = jBtnNuevo;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,17 +44,16 @@ public class ConocerSocios extends javax.swing.JFrame {
         jBtnAtras = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBtnNuevo = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(241, 169, 89));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Lista de Socios con sus Prestamos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 18), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de Socios con sus Prestamos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 18), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(247, 191, 125));
-        jPanel2.setForeground(new java.awt.Color(0, 0, 0));
 
         jBtnActualizar.setText("Actualizar");
 
@@ -58,7 +65,7 @@ public class ConocerSocios extends javax.swing.JFrame {
 
         jButton2.setText("Buscar");
 
-        jButton3.setText("Nuevo");
+        jBtnNuevo.setText("Nuevo");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -66,7 +73,7 @@ public class ConocerSocios extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBtnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -89,7 +96,7 @@ public class ConocerSocios extends javax.swing.JFrame {
                     .addComponent(jBtnActualizar)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jBtnNuevo))
                 .addGap(14, 14, 14))
         );
 
@@ -202,9 +209,9 @@ public class ConocerSocios extends javax.swing.JFrame {
     private javax.swing.JButton jBtnAceptar;
     private javax.swing.JButton jBtnActualizar;
     private javax.swing.JButton jBtnAtras;
+    private javax.swing.JButton jBtnNuevo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;

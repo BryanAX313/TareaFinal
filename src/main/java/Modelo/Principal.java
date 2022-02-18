@@ -15,6 +15,7 @@ import Vista.Login;
 import Vista.PrestamoLibros;
 import Vista.UbicacionLibro1;
 import Vista.Autor1;
+import Vista.CatalogoLibros;
 
 /**
  *
@@ -37,7 +38,18 @@ public class Principal {
        UbicacionLibro1 ubicacionLibro=new UbicacionLibro1();
        DireccionSocio direccionSocio =new DireccionSocio();
        Autor1 autor =new Autor1();
-       Controlador control=new Controlador( actulizarUbiLibro, bibliotecaP, conocerSocios, ingresarLibros, ingresarNuevoSocio,login,prestamosLibros, ubicacionLibro, direccionSocio,autor);
+       CatalogoLibros cat = new CatalogoLibros();
+       Controlador control=new Controlador( 
+               actulizarUbiLibro,
+               bibliotecaP,
+               conocerSocios,
+               ingresarLibros,
+               ingresarNuevoSocio,
+               login,prestamosLibros,
+               ubicacionLibro,
+               direccionSocio,
+               autor,cat
+       );
     }
     
 }

@@ -74,7 +74,7 @@ public class Biblioteca1 extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
         jLabel1.getAccessibleContext().setAccessibleDescription("");
 
-        jTxtBuscar.setBackground(new java.awt.Color(237, 187, 135));
+        jTxtBuscar.setBackground(new java.awt.Color(233, 247, 245));
         jTxtBuscar.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         jTxtBuscar.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jPanel1.add(jTxtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 500, 40));
@@ -86,7 +86,6 @@ public class Biblioteca1 extends javax.swing.JFrame {
         jPanel1.add(jBtnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, 110, 40));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\braya\\Documents\\NetBeansProjects\\AF-AsimbayaBryan-Biblioteca\\src\\main\\java\\Imagenes\\Biblio.jpg")); // NOI18N
         jLabel3.setToolTipText("");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 454));
 

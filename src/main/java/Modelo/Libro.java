@@ -18,13 +18,39 @@ public class Libro {
     
     private Ubicacion ubicacion ;
     
-    private String[] area={"Filosofia","Religion","Ciencias Sociales","Filogia","Ciencias Naturales","Tecnicas","Ciencias Practicas","Arte y Literatura","Historia"};
+    private String area;
     
-    public Libro(String codigo, String titulo, boolean disponibilidad, Ubicacion ubicacion) {
+    public Libro(String codigo, String titulo, boolean disponibilidad, Ubicacion ubicacion, String area) {
         this.codigo = codigo;
         this.titulo = titulo;
         this.disponibilidad = disponibilidad;
         this.ubicacion = ubicacion;
+        this.area=area;
+    }
+    public int actualizarUbi (Ubicacion ubi,String areaAux){
+        int completado=0;
+            setUbicacion(ubi);
+            setArea(areaAux);
+            if (area.equals(areaAux)&&ubicacion.equals(ubi)) {
+            completado=1;
+        }
+        return completado;
+    }
+    
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
 
     
@@ -38,6 +64,8 @@ public class Libro {
         if (estado==0) {
            autores.add(di);
             estado=1;      
+        }else{
+            estado=0;
         }
         return estado;
     }

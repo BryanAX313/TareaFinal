@@ -17,6 +17,11 @@ public class Ubicacion {
         this.numeroEstante = numeroEstante;
     }
 
+    @Override
+    public String toString() {
+        return "NumeroPiso:" + numeroPiso + "\nNumero Habitacion:" + numeroHabitacion + "\nNumero Estante:" + numeroEstante ;
+    }
+
     public int getNumeroPiso() {
         return numeroPiso;
     }

@@ -56,19 +56,21 @@ public class BaseDatos {
         }    
         return completado;
     }
-    public boolean añadiLibro(Libro nuevolibro){
-        boolean completado=false;
-        for (int i = 0; i <socios.size(); i++) {
+    public int añadiLibro(Libro nuevolibro){
+        int completado=0, existe=0;
+        for (int i = 0; i <librosTotal.size(); i++) {
             if (librosTotal.get(i).equals(nuevolibro)) {
-                completado=false;
-            }else{
-                librosTotal.add(nuevolibro);
-                completado=true;
-            }
+                 existe=1;
+            }  
         }
+        if (existe==0) {
+            librosTotal.add(nuevolibro);
+             completado=1;
+        }else{       
+            completado=0;
+        }      
         return completado;
     }
-    
     public ArrayList librosAutores(String nombreAutor){
         ArrayList<Libro>librosEscritos=new ArrayList();
         for (int i = 0; i <librosTotal.size(); i++) {
@@ -88,6 +90,15 @@ public class BaseDatos {
                 posicionlibroBuscado=String.valueOf(i);
             }else{
                 posicionlibroBuscado="No encontrado";
+            }
+        }      
+       return posicionlibroBuscado; 
+    }
+    public ArrayList<Libro> buscarLibroT(String Titulo){
+        ArrayList<Libro>posicionlibroBuscado=new ArrayList();
+        for (int i = 0; i <librosTotal.size(); i++) {
+            if (librosTotal.get(i).getTitulo().equals(Titulo)) {
+                posicionlibroBuscado.add(librosTotal.get(i));
             }
         }      
        return posicionlibroBuscado; 
