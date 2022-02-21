@@ -129,36 +129,58 @@ public class Controlador implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 // Catalogo Libros
-        if (e.getSource().equals(catalogoLibros.getjBtnSalir())) {
+         if (e.getSource().equals(catalogoLibros.getjBtnSalir())) {
             catalogoLibros.dispose();
+            limpiarConocerSocios();
         }
         if (e.getSource().equals(catalogoLibros.getjBtnEliminar())) {
             int c;
+            c=catalogoLibros.getjTblLibros().getSelectedRow();
+            String g =String.valueOf(catalogoLibros.getjTblLibros().getModel().getValueAt(c,0));
+            System.out.println(g);
            try{
-               c=catalogoLibros.getjTblLibros().getSelectedRow();
-               matris.remove(c);//falta que conosca el array de la mostrar
-           }catch (Exception e){ 
-               //no sirve si no esta dentro de mostrar
+               if (baseDatos.buscarLibro(g).equals("No encontrado")) {
+                   JOptionPane.showMessageDialog(null, "Ya no quedan ejemplares");
+               }else{
+                   baseDatos.getLibrosTotal().remove(Integer.parseInt(baseDatos.buscarLibro(g)));
+               } 
+               System.out.println("xddddd");
+           }catch (Exception x){ 
                JOptionPane.showMessageDialog(null, "Ecojer una Fila");
            }
-           mostrar();
+            ArrayList<Libro> lista =new ArrayList();
+            lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+            mostrar(lista);
         }
         if (e.getSource().equals(catalogoLibros.getjBtnBuscar())) {
             catalogoLibros.dispose();
             ubicacionLibro.show();
         }
+        
+        
         if (e.getSource().equals(catalogoLibros.getjBtnModificar())) {
-            int c,Titulo;
-           Libro aux;
-           try{
-               c=catalogoLibros.getjTblLibros().getSelectedRow();
-               aux=matris.get(c);
-               Titulo=Integer.parseInt(JOptionPane.showInputDialog("Nuevo Titulo"));
-               aux.setTitulo("  ");
-           }catch(Exception e){
-               JOptionPane.showMessageDialog(null,"Escojer una fila");
-           }
-           mostrar();
+            int c;
+            Libro aux;  
+            c=catalogoLibros.getjTblLibros().getSelectedRow();
+            try{             
+               limpiarNuevoLibro();
+               ingresarLibros.show();
+               llenarVentanaNuevoLibro(
+                       baseDatos.getLibrosTotal().get(
+                               Integer.parseInt(
+                                       baseDatos.buscarLibro(
+                                               String.valueOf(
+                                                       catalogoLibros.getjTblLibros().getModel().getValueAt((c),0)
+                                               )
+                                       )
+                               )
+                       )
+               );
+              
+         }catch(Exception x){
+        JOptionPane.showMessageDialog(null,"Escojer una fila");
+          }
+
         }
 //login
         if(e.getSource().equals(login.getjBtnAceptar())){
@@ -307,53 +329,49 @@ public class Controlador implements ActionListener{
         
         if(e.getSource().equals(ingresarLibros.getjBtnAutor())){
                 autor.show(); 
-                //codigo y titulo
-            Ubicacion ubiLib = new Ubicacion (
-                    Integer.parseInt(ingresarLibros.getjTxtNumeroPiso().getText()),
-                    Integer.parseInt(ingresarLibros.getjTxtNumeroHabitacion().getText()),
-                    Integer.parseInt(ingresarLibros.getjTxtEstante().getText())
-            );
-            
-            int bandera =0;
-            String[] area={"Filosofia","Religion","Ciencias Sociales","Filogia","Ciencias Naturales","Tecnicas","Ciencias Practicas","Arte y Literatura","Historia"};
-            for (int i = 0; i < 8; i++) {
-                if (ingresarLibros.getjComboBox1().getItemAt(i).equals(area[i])) {
-                    bandera=i;
-                }
-            }
-            
-            Libro auxLibro=new Libro(
-                    ingresarLibros.getjTxtCodigoLibro().getText(),
-                    ingresarLibros.getjTxtTitulo().getText(),
-                    true,
-                    ubiLib,
-                    ingresarLibros.getjComboBox1().getItemAt(bandera)
-            );
-            System.out.println(ingresarLibros.getjTxtCodigoLibro().getText());
-            
+            Libro auxLibro=datosLibro();
             int x = baseDatos.añadiLibro(auxLibro);
-            ///            
-            
             }
- 
+        
         if(e.getSource().equals(ingresarLibros.getjBtnGuardar())){
-            int x=1;
-            for (int i = 0; i < baseDatos.getLibrosTotal().size(); i++) {
-                if (baseDatos.getLibrosTotal().get(i).getAutores().size()==0) {
-                        baseDatos.getLibrosTotal().remove(baseDatos.getLibrosTotal().get(i));
-                        x=1;
-                    }else{
-                        x=0;
-                    }
-                }               
-            if (x==0) {
-               JOptionPane.showMessageDialog(null, "Se guardo con exito el libro");
-            }else{
-                JOptionPane.showMessageDialog(null, "Libro ya registrado no se guardo");
-                
+        int x=1,c=0;            
+        c=catalogoLibros.getjTblLibros().getSelectedRow();      
+        if (c!=-1) {                  
+            String g =String.valueOf(catalogoLibros.getjTblLibros().getModel().getValueAt(c,0));
+            String codigoAux =ingresarLibros.getjTxtCodigoLibro().getText();
+            System.out.println(codigoAux);
+            System.out.println(g);
+            Libro auxLibro=datosLibro();               
+            if (baseDatos.buscarLibro("PRUEBA").equals("No encontrado")) {
+                baseDatos.añadiLibro(auxLibro);
             }
-            limpiarNuevoLibro();
+            ;
+            baseDatos.getLibrosTotal().remove(Integer.parseInt(baseDatos.buscarLibro(g)));
+            baseDatos.getLibrosTotal().get(Integer.parseInt(baseDatos.buscarLibro(auxLibro.getCodigo()))).setCodigo(codigoAux);
+         //   System.out.println(baseDatos.getLibrosTotal().get(Integer.parseInt(baseDatos.buscarLibro(auxLibro.getCodigo()))).getCodigo());
+            x=0;
+
+            ArrayList<Libro> lista =new ArrayList();
+            lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+            mostrar(lista);
+        }else{
+          for (int i = 0; i < baseDatos.getLibrosTotal().size(); i++) {
+            if (baseDatos.getLibrosTotal().get(i).getAutores().size()==0) {
+                    baseDatos.getLibrosTotal().remove(baseDatos.getLibrosTotal().get(i));
+                    x=1;
+                }else{
+                    x=0;
+                }
+            }  
         }
+        if (x==0) {
+           JOptionPane.showMessageDialog(null, "Se guardo con exito el libro");
+        }else{
+            JOptionPane.showMessageDialog(null, "Libro ya registrado no se guardo");
+
+        }
+        limpiarNuevoLibro();
+}
        
 //PrestamoLibro
         if(e.getSource().equals(prestamosLibros.getBtnAtras())){
@@ -385,11 +403,18 @@ public class Controlador implements ActionListener{
             if (baseDatos.buscarLibro(ubicacionLibro.getjTxtCodigo().getText()).equals("No encontrado")) {
                 JOptionPane.showMessageDialog(null, "No encontrado");
             }else{
-                Ubicacion ubiAux = baseDatos.getLibrosTotal().get(Integer.parseInt(baseDatos.buscarLibro(ubicacionLibro.getjTxtCodigo().getText()))).getUbicacion();
+                Libro ubiAux = baseDatos.getLibrosTotal().get(
+                        Integer.parseInt(
+                                baseDatos.buscarLibro(
+                                        ubicacionLibro.getjTxtCodigo().getText()
+                                )
+                        )
+                );
+                
                 ubicacionLibro.getjLblArea().setText( baseDatos.getLibrosTotal().get(Integer.parseInt(baseDatos.buscarLibro(ubicacionLibro.getjTxtCodigo().getText()))).getArea());
-                ubicacionLibro.getjLblEstante().setText(ubiAux.getNumeroEstante()+"");
-                ubicacionLibro.getjLblHabitacion().setText(ubiAux.getNumeroHabitacion()+"");
-                ubicacionLibro.getjLblPiso().setText(ubiAux.getNumeroPiso()+"");
+                ubicacionLibro.getjLblEstante().setText(ubiAux.getUbicacion().getNumeroEstante()+"");
+                ubicacionLibro.getjLblHabitacion().setText(ubiAux.getUbicacion().getNumeroHabitacion()+"");
+                ubicacionLibro.getjLblPiso().setText(ubiAux.getUbicacion().getNumeroPiso()+"");
             }
         }
         if (e.getSource().equals(ubicacionLibro.getjBtnActualizar())) {
@@ -406,6 +431,7 @@ public class Controlador implements ActionListener{
            
        }
 ///Autor/-*/**/*/*
+        
         if(e.getSource().equals(autor.getjBtnAtras())){
            autor.dispose();
            ingresarLibros.show();
@@ -424,17 +450,14 @@ public class Controlador implements ActionListener{
                     autor.getjTxtNacionalidad().getText(), 
                     autor.getjTxtNacimiento().getText()
             );
-            for (int i = 0; i < baseDatos.getLibrosTotal().size(); i++) {          
-                if (baseDatos.getLibrosTotal().get(i).getAutores().size()==0) {
-                    if (baseDatos.getLibrosTotal().get(i).agregarAutor(auxAutor)==1) {
-                        JOptionPane.showMessageDialog(null, "Autor Ingresado");
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Autor NoIngresado");
-                        System.out.println("else");
-                    }
-                }
-            }
-       }
+            if (baseDatos.getLibrosTotal().get(Integer.parseInt(baseDatos.buscarLibro("PRUEBA"))).agregarAutor(auxAutor)==1) {
+                    JOptionPane.showMessageDialog(null, "Autor Ingresado");
+                }else{
+                    JOptionPane.showMessageDialog(null, "Autor NoIngresado");
+                    System.out.println("else");
+            }        
+        }
+
         
         
 ////Actualizar Ubucacion de Libro
@@ -448,17 +471,12 @@ public class Controlador implements ActionListener{
                     Integer.parseInt(actulizarUbiLibro.getjTxtHabitacion().getText()),
                     Integer.parseInt(actulizarUbiLibro.getjTxtEstante().getText())
             );
-           int bandera =0;
             String[] area={"Filosofia","Religion","Ciencias Sociales","Filogia","Ciencias Naturales","Tecnicas","Ciencias Practicas","Arte y Literatura","Historia"};
-            for (int i = 0; i < 8; i++) {
-                if (actulizarUbiLibro.getjCbxArea().getItemAt(i).equals(area[i])) {
-                    bandera=i;
-                }
-            }
+            System.out.println(String.valueOf(ingresarLibros.getjComboBox1().getItemAt(2)));
             
             for (int i = 0; i < baseDatos.getLibrosTotal().size(); i++) {
                 if ( baseDatos.getLibrosTotal().get(i).getCodigo().equals(ubicacionLibro.getjTxtCodigo().getText())) {
-                    if (baseDatos.getLibrosTotal().get(i).actualizarUbi(ubi, area[bandera])==1) {
+                    if (baseDatos.getLibrosTotal().get(i).actualizarUbi(ubi, area[ingresarLibros.getjComboBox1().getSelectedIndex()])==1) {
                         JOptionPane.showMessageDialog(null, "Actualizado");
                     }else{
                         JOptionPane.showMessageDialog(null, "No actualizado");
@@ -477,14 +495,14 @@ public class Controlador implements ActionListener{
         
         for (int i = 0; i <ar.size() ; i++) {
             matris[i][0]=ar.get(i).getArea();
-            matris[i][1]=ar.get(i).getCodigo();
-            matris[i][2]=ar.get(i).getTitulo();
-            matris[i][3]=ar.get(i).getAutores().toString();      
-            matris[i][4]=ar.get(i).getUbicacion().toString();
+            matris[i][0]=ar.get(i).getCodigo();
+            matris[i][1]=ar.get(i).getTitulo();
+            matris[i][4]=ar.get(i).getAutores().toString();      
+            matris[i][3]=ar.get(i).getUbicacion().toString();
             if (ar.get(i).isDisponibilidad()==true) {
-                matris[i][0]="Disponible";
+                matris[i][2]="Disponible";
             }else{
-                matris[i][0]="No Disponible";
+                matris[i][2]="No Disponible";
             }
             catalogoLibros.getjTblLibros().setModel(new javax.swing.table.DefaultTableModel(
             matris,
@@ -553,4 +571,75 @@ public class Controlador implements ActionListener{
     ingresarLibros.getjTxtNumeroPiso().setText("");
     
     }
+    private void llenarVentanaNuevoLibro(Libro libro){
+    ingresarLibros.getjTxtCodigoLibro().setText(libro.getCodigo());
+    ingresarLibros.getjTxtTitulo().setText(libro.getTitulo());
+    ingresarLibros.getjTxtNumeroHabitacion().setText(String.valueOf(libro.getUbicacion().getNumeroHabitacion()));
+    ingresarLibros.getjTxtEstante().setText(String.valueOf(libro.getUbicacion().getNumeroEstante()));
+    ingresarLibros.getjTxtNumeroPiso().setText(String.valueOf(libro.getUbicacion().getNumeroPiso()));    
+    }
+    private void ingresarDatosSocio(){
+        String tipoVivienda;
+            if (ingresarNuevoSocio.getjComboBox1().getSelectedIndex()==1) {
+                tipoVivienda="Casa";
+            }else{
+                if(ingresarNuevoSocio.getjComboBox1().getSelectedIndex()==2){
+                  tipoVivienda="Departamento";  
+                }else{
+                    if (ingresarNuevoSocio.getjComboBox1().getSelectedIndex()==3) {
+                       tipoVivienda="Oficiona";  
+                    }else{
+                        tipoVivienda="Empresa"; 
+                    }
+                }
+            }
+            Socio auxSocio =new Socio(tipoVivienda, ingresarNuevoSocio.getjTxtCI().getText(), ingresarNuevoSocio.getjTxtNombre1().getText()
+                    , ingresarNuevoSocio.getjTxtApellido1().getText(), ingresarNuevoSocio.getjTxtApellido2().getText()
+                    , ingresarNuevoSocio.getjTxtMovil().getText(),ingresarNuevoSocio.getjTxtConvencional().getText(),ingresarNuevoSocio.getjTxtUsuario().getText());
+            
+            auxSocio.getDirecciones().add(new Direccion(ingresarNuevoSocio.getjTxtCprincipal().getText()
+                    ,ingresarNuevoSocio.getjTxtCsecuandaria().getText(), ingresarNuevoSocio.getjTxtNumeracion().getText()));
+
+            if (baseDatos.añadiSocio(auxSocio)==1) {
+               JOptionPane.showMessageDialog(null, "Completado");
+            }else{
+                JOptionPane.showMessageDialog(null, "ERROR");
+            }
+    }
+    private Libro datosLibro(){  
+             Ubicacion ubiLib = new Ubicacion (
+                    Integer.parseInt(ingresarLibros.getjTxtNumeroPiso().getText()),
+                    Integer.parseInt(ingresarLibros.getjTxtNumeroHabitacion().getText()),
+                    Integer.parseInt(ingresarLibros.getjTxtEstante().getText())
+            );           
+            int bandera =0;
+            String[] area={"Filosofia","Religion","Ciencias Sociales","Filogia","Ciencias Naturales","Tecnicas","Ciencias Practicas","Arte y Literatura","Historia"};        
+            Libro auxLibro=new Libro(
+                    "PRUEBA",
+                    ingresarLibros.getjTxtTitulo().getText(),
+                    true,
+                    ubiLib,
+                    area[ingresarLibros.getjComboBox1().getSelectedIndex()]
+            );           
+        return auxLibro;
+       }
+    private void limpiarConocerSocios(){
+        catalogoLibros.getjTblLibros().setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+            },
+            new String [] {
+                "Codigo", "Titulo", "Disponibilidad", "Ubicacion", "Autor"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+    }
 }
+     
+    

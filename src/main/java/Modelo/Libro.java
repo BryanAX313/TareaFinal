@@ -19,6 +19,10 @@ public class Libro {
     private Ubicacion ubicacion ;
     
     private String area;
+
+    public Libro(String codigo) {
+        this.codigo = codigo;
+    }
     
     public Libro(String codigo, String titulo, boolean disponibilidad, Ubicacion ubicacion, String area) {
         this.codigo = codigo;

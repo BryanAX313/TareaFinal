@@ -50,6 +50,23 @@ public class Principal {
                direccionSocio,
                autor,cat
        );
+       
+       Libro lb=new Libro ("123","EDO",true,new Ubicacion(1,1,1),"");
+       Libro lb2=new Libro ("124","EDO",true,new Ubicacion(2,1,1),"");
+       Libro lb3=new Libro ("125","EDO",true,new Ubicacion(3,1,1),"");
+       Libro lb4=new Libro ("126","EDO",true,new Ubicacion(4,1,1),"");
+       Libro lb5=new Libro ("127","EDO",true,new Ubicacion(5,1,1),"");
+       Libro lb6=new Libro ("128","EDO",true,new Ubicacion(6,1,1),"");
+       
+       BaseDatos baseDatos = BaseDatos.getInstancia();
+       baseDatos.añadiLibro(lb2);
+       baseDatos.añadiLibro(lb);
+       baseDatos.añadiLibro(lb3);
+       baseDatos.añadiLibro(lb4);
+       baseDatos.añadiLibro(lb5);
+       baseDatos.añadiLibro(lb6);
+
+       
     }
     
 }

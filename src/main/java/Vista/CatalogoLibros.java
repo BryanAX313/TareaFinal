@@ -46,7 +46,7 @@ public class CatalogoLibros extends javax.swing.JFrame {
 
         jTblLibros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Codigo", "Titulo", "Disponibilidad", "Ubicacion", "Autor"

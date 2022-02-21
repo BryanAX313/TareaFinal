@@ -84,14 +84,21 @@ public class BaseDatos {
     }
     
     public String buscarLibro(String codigo){
-        String posicionlibroBuscado="";
+        String posicionlibroBuscado="";               
+        int bandera=0;
         for (int i = 0; i <librosTotal.size(); i++) {
-            if (librosTotal.get(i).getCodigo().equals(codigo)) {
-                posicionlibroBuscado=String.valueOf(i);
-            }else{
-                posicionlibroBuscado="No encontrado";
-            }
-        }      
+            
+            if (librosTotal.get(i).getCodigo().equals(codigo)) {            
+                posicionlibroBuscado="si";
+                bandera=i;
+            }           
+        }
+        if (posicionlibroBuscado.equals("si")) {
+            posicionlibroBuscado=String.valueOf(bandera);
+        }else{
+            posicionlibroBuscado="No encontrado";
+        }
+                    
        return posicionlibroBuscado; 
     }
     public ArrayList<Libro> buscarLibroT(String Titulo){
