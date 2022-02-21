@@ -6,6 +6,7 @@ package Vista;
 
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JTable;
 
 /**
  *
@@ -28,6 +29,26 @@ public class ConocerSocios extends javax.swing.JFrame {
         this.jBtnNuevo = jBtnNuevo;
     }
 
+    public JTable getjTbtlSocios() {
+        return jTbtlSocios;
+    }
+     public JButton getjBtnActualizar() {
+        return jBtnActualizar;
+    }
+
+    public JButton getjBtnAtras() {
+        return jBtnAtras;
+    }
+
+    public JButton getjBtnBuscar() {
+        return jBtnBuscar;
+    }
+
+    public JButton getjBtnEliminar() {
+        return jBtnEliminar;
+    }
+    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,13 +61,12 @@ public class ConocerSocios extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jBtnActualizar = new javax.swing.JButton();
-        jBtnAceptar = new javax.swing.JButton();
         jBtnAtras = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jBtnEliminar = new javax.swing.JButton();
+        jBtnBuscar = new javax.swing.JButton();
         jBtnNuevo = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTbtlSocios = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,13 +77,11 @@ public class ConocerSocios extends javax.swing.JFrame {
 
         jBtnActualizar.setText("Actualizar");
 
-        jBtnAceptar.setText("Aceptar");
-
         jBtnAtras.setText("Atras");
 
-        jButton1.setText("Eliminar");
+        jBtnEliminar.setText("Eliminar");
 
-        jButton2.setText("Buscar");
+        jBtnBuscar.setText("Buscar");
 
         jBtnNuevo.setText("Nuevo");
 
@@ -75,14 +93,12 @@ public class ConocerSocios extends javax.swing.JFrame {
                 .addContainerGap(33, Short.MAX_VALUE)
                 .addComponent(jBtnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jBtnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158)
-                .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addGap(283, 283, 283)
                 .addComponent(jBtnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -92,28 +108,27 @@ public class ConocerSocios extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnAtras)
-                    .addComponent(jBtnAceptar)
                     .addComponent(jBtnActualizar)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
+                    .addComponent(jBtnEliminar)
+                    .addComponent(jBtnBuscar)
                     .addComponent(jBtnNuevo))
                 .addGap(14, 14, 14))
         );
 
-        jTable1.setBackground(new java.awt.Color(247, 191, 125));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTbtlSocios.setBackground(new java.awt.Color(247, 191, 125));
+        jTbtlSocios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Nombre 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Direcion"
+                "Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Direcion", "Confiabilidad"
             }
         ));
-        jTable1.setOpaque(false);
-        jScrollPane2.setViewportView(jTable1);
+        jTbtlSocios.setOpaque(false);
+        jScrollPane2.setViewportView(jTbtlSocios);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,9 +145,8 @@ public class ConocerSocios extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(201, 201, 201)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -191,30 +205,20 @@ public class ConocerSocios extends javax.swing.JFrame {
         });
     }
 
-    public JButton getjBtnAceptar() {
-        return jBtnAceptar;
-    }
 
-    public JButton getjBtnActualizar() {
-        return jBtnActualizar;
-    }
-
-    public JButton getjBtnAtras() {
-        return jBtnAtras;
-    }
+   
 
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBtnAceptar;
     private javax.swing.JButton jBtnActualizar;
     private javax.swing.JButton jBtnAtras;
+    private javax.swing.JButton jBtnBuscar;
+    private javax.swing.JButton jBtnEliminar;
     private javax.swing.JButton jBtnNuevo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTbtlSocios;
     // End of variables declaration//GEN-END:variables
 }

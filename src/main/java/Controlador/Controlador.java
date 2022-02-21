@@ -43,7 +43,6 @@ public class Controlador implements ActionListener{
     private UbicacionLibro1 ubicacionLibro;
     private DireccionSocio direccionSocio;
     private Autor1 autor;
-    private ActualizarUbiLibro actualizarubiLibro;
     private CatalogoLibros catalogoLibros;
 
     public Controlador(ActualizarUbiLibro actulizarUbiLibro, Biblioteca1 bibliotecaP, ConocerSocios conocerSocios, IngresarLibros ingresarLibros, IngresarNuevoSocio ingresarNuevoSocio, Login login, PrestamoLibros prestamosLibros, UbicacionLibro1 ubicacionLibro,DireccionSocio direccionSocio,Autor1 autor,CatalogoLibros catalogoLibros) {
@@ -62,6 +61,7 @@ public class Controlador implements ActionListener{
         ///////*****Ventana Actualizar Ubicacion Libro*******////////
         this.actulizarUbiLibro.getjBtnAceptar().addActionListener(this);
         this.actulizarUbiLibro.getjBtnAtras().addActionListener(this);
+        this.actulizarUbiLibro.getjBtnLimpiar().addActionListener(this);
         
         ///////*****Ventana Biblioteca*******////////
         this.bibliotecaP.getjBtnBuscar().addActionListener(this);
@@ -74,7 +74,7 @@ public class Controlador implements ActionListener{
         this.bibliotecaP.getjMnNuevoSocio().addActionListener(this);
             
         ///////*****Conocer Socios*******////////
-        this.conocerSocios.getjBtnAceptar().addActionListener(this);
+        this.conocerSocios.getjBtnEliminar().addActionListener(this);
         this.conocerSocios.getjBtnActualizar().addActionListener(this);
         this.conocerSocios.getjBtnAtras().addActionListener(this);
         this.conocerSocios.getjBtnNuevo().addActionListener(this);
@@ -83,6 +83,7 @@ public class Controlador implements ActionListener{
         this.ingresarLibros.getjBtnAtras().addActionListener(this);
         this.ingresarLibros.getjBtnGuardar().addActionListener(this);
         this.ingresarLibros.getjBtnAutor().addActionListener(this);
+       
        
         ///////*****Ingresar Nuevo socio*******////////
         this.ingresarNuevoSocio.getjBtnAceptar().addActionListener(this);
@@ -109,8 +110,8 @@ public class Controlador implements ActionListener{
         
         ///////*****Autor*******////////
         this.autor.getjBtnAtras().addActionListener(this);
-        this.autor.getjBtnEliminar().addActionListener(this);
         this.autor.getjBtnGuardar().addActionListener(this);
+        this.autor.getjBntLimpiar().addActionListener(this);
         this.autor.getjTxtAlias().addActionListener(this);
         this.autor.getjTxtNacimiento().addActionListener(this);
         this.autor.getjTxtNacionalidad().addActionListener(this);
@@ -130,6 +131,34 @@ public class Controlador implements ActionListener{
 // Catalogo Libros
         if (e.getSource().equals(catalogoLibros.getjBtnSalir())) {
             catalogoLibros.dispose();
+        }
+        if (e.getSource().equals(catalogoLibros.getjBtnEliminar())) {
+            int c;
+           try{
+               c=catalogoLibros.getjTblLibros().getSelectedRow();
+               matris.remove(c);//falta que conosca el array de la mostrar
+           }catch (Exception e){ 
+               //no sirve si no esta dentro de mostrar
+               JOptionPane.showMessageDialog(null, "Ecojer una Fila");
+           }
+           mostrar();
+        }
+        if (e.getSource().equals(catalogoLibros.getjBtnBuscar())) {
+            catalogoLibros.dispose();
+            ubicacionLibro.show();
+        }
+        if (e.getSource().equals(catalogoLibros.getjBtnModificar())) {
+            int c,Titulo;
+           Libro aux;
+           try{
+               c=catalogoLibros.getjTblLibros().getSelectedRow();
+               aux=matris.get(c);
+               Titulo=Integer.parseInt(JOptionPane.showInputDialog("Nuevo Titulo"));
+               aux.setTitulo("  ");
+           }catch(Exception e){
+               JOptionPane.showMessageDialog(null,"Escojer una fila");
+           }
+           mostrar();
         }
 //login
         if(e.getSource().equals(login.getjBtnAceptar())){
@@ -173,14 +202,22 @@ public class Controlador implements ActionListener{
        }
         if(e.getSource().equals(bibliotecaP.getjMnListaSocio())){
           //  bibliotecaP.dispose();
-            conocerSocios.show();
-       }if(e.getSource().equals(bibliotecaP.getjMnIngresarLibro())){
+            if (prestamosLibros.getJlblUs().getText().equals("No Iniciado Sesion")) {
+                JOptionPane.showMessageDialog(null, "Necesita Ingresar Sesion para Conocer lista de Socios");
+            }else{
+                ArrayList<Socio> lista =new ArrayList();
+                    mostrarS();
+                    conocerSocios.show();          
+            }
+       }
+        if(e.getSource().equals(bibliotecaP.getjMnIngresarLibro())){
          //   bibliotecaP.dispose();
             ingresarLibros.show();
        }
        
        if(e.getSource().equals(bibliotecaP.getjMnSociosNoConfiables())){
            conocerSocios.show();
+           
        }
        if(e.getSource().equals(bibliotecaP.getjBtnBuscar())){
            bibliotecaP.dispose();
@@ -232,15 +269,36 @@ public class Controlador implements ActionListener{
            bibliotecaP.show();
        }
         if(e.getSource().equals(conocerSocios.getjBtnActualizar())){
-           
+           int c,telefonoMovil;
+           Socio aux;
+           try{
+               c=conocerSocios.getjTbtlSocios().getSelectedRow();
+               aux=Mat.get(c);
+               telefonoMovil=Integer.parseInt(JOptionPane.showInputDialog("Nuevo nombre"));
+               aux.setTelefonoMovil(" ");
+           }catch(Exception e){
+               JOptionPane.showMessageDialog(null,"Escojer una fila");
+           }
+           mostrarS();
        }
-        if(e.getSource().equals(conocerSocios.getjBtnAceptar())){
-           
+        if(e.getSource().equals(conocerSocios.getjBtnEliminar())){
+            int c;
+           try{
+               c=conocerSocios.getjTbtlSocios().getSelectedRow();
+               Mat.remove(c);//falta que conosca el array de la mostrarS
+           }catch (Exception e){ 
+               //no sirve si no esta dentro de mostrarS
+               JOptionPane.showMessageDialog(null, "Ecojer una Fila");
+           }
+           mostrarS();
+           //https://www.youtube.com/watch?v=ODil83AQtzE de aqui salio los codigos que hice pero le hace dentro de la ventana
        }
+       
         if(e.getSource().equals(conocerSocios.getjBtnNuevo())){
            conocerSocios.dispose();
            ingresarNuevoSocio.show();
        }
+       
 //IngresarLibros
         if(e.getSource().equals(ingresarLibros.getjBtnAtras())){
            ingresarLibros.dispose();
@@ -352,8 +410,12 @@ public class Controlador implements ActionListener{
            autor.dispose();
            ingresarLibros.show();
        }
-        if(e.getSource().equals(autor.getjBtnEliminar())){
-           
+        
+         if(e.getSource().equals(autor.getjBntLimpiar())){
+           autor.getjTxtAlias().setText(null);
+           autor.getjTxtNacimiento().setText(null);
+           autor.getjTxtNacionalidad().setText(null);
+           autor.getjTxtNombre().setText(null);
        }
         if(e.getSource().equals(autor.getjBtnGuardar())){
             Autor auxAutor=new Autor(
@@ -362,11 +424,9 @@ public class Controlador implements ActionListener{
                     autor.getjTxtNacionalidad().getText(), 
                     autor.getjTxtNacimiento().getText()
             );
-            for (int i = 0; i < baseDatos.getLibrosTotal().size(); i++) {
-                System.out.println("zsaddadaw");
+            for (int i = 0; i < baseDatos.getLibrosTotal().size(); i++) {          
                 if (baseDatos.getLibrosTotal().get(i).getAutores().size()==0) {
                     if (baseDatos.getLibrosTotal().get(i).agregarAutor(auxAutor)==1) {
-                        System.out.println("if");
                         JOptionPane.showMessageDialog(null, "Autor Ingresado");
                     }else{
                         JOptionPane.showMessageDialog(null, "Autor NoIngresado");
@@ -406,6 +466,11 @@ public class Controlador implements ActionListener{
                 }
             }
        }
+        if(e.getSource().equals(actulizarUbiLibro.getjBtnLimpiar())){
+          actulizarUbiLibro.getjTxtEstante().setText(null);
+          actulizarUbiLibro.getjTxtHabitacion().setText(null);
+          actulizarUbiLibro.getjTxtPiso().setText(null);
+       }
     }
     private void mostrar(ArrayList<Libro> ar){
         String matris[][]=new String[ar.size()][5];
@@ -439,6 +504,30 @@ public class Controlador implements ActionListener{
         }
         
     }
+    private void mostrarS(){
+        String Mat[][]=new String[baseDatos.getSocios().size()][8];
+         Socio aux;
+        for (int i = 0; i <baseDatos.getSocios().size() ; i++) {
+            aux=baseDatos.getSocios().get(i);
+            Mat[i][0]=aux.getNombre();
+            Mat[i][1]=aux.getApellido2();
+            Mat[i][2]=aux.getApellido1();
+            Mat[i][3]=aux.getTelefonoConvencional();      
+            Mat[i][4]=aux.getTelefonoMovil();
+            Mat[i][5]=aux.getLibrosAdquiridos().toString();
+            Mat[i][6]=aux.getDirecciones().toString();
+ //confiabilidad           Mat[i][7]=aux.
+        }
+        conocerSocios.getjTbtlSocios().setModel(new javax.swing.table.DefaultTableModel(
+            Mat,
+            new String [] {
+                "Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Direcion", "Confiabilidad"
+            }
+        ));
+         
+            
+        }
+        
     private void limpiarNuevoSocio(){
     ingresarNuevoSocio.getjTxtApellido1().setText("");
     ingresarNuevoSocio.getjTxtCI().setText("");

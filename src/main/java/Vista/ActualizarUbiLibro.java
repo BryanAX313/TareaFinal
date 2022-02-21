@@ -41,11 +41,12 @@ public class ActualizarUbiLibro extends javax.swing.JFrame {
         jTxtEstante = new javax.swing.JTextField();
         jBtnAceptar = new javax.swing.JButton();
         jBtnAtras = new javax.swing.JButton();
+        jBtnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(241, 169, 89));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Actualizar Ubicacion Libro", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Actualizar Ubicacion Libro", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel1.setText("Numero de Piso:");
@@ -79,6 +80,9 @@ public class ActualizarUbiLibro extends javax.swing.JFrame {
         jBtnAtras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jBtnAtras.setText("Atras");
 
+        jBtnLimpiar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jBtnLimpiar.setText("Limpiar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -99,10 +103,12 @@ public class ActualizarUbiLibro extends javax.swing.JFrame {
                 .addGap(46, 46, 46))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBtnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jBtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBtnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
+                .addGap(30, 30, 30))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +132,8 @@ public class ActualizarUbiLibro extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnAceptar)
-                    .addComponent(jBtnAtras))
+                    .addComponent(jBtnAtras)
+                    .addComponent(jBtnLimpiar))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -212,12 +219,17 @@ public class ActualizarUbiLibro extends javax.swing.JFrame {
     public JTextField getjTxtPiso() {
         return jTxtPiso;
     }
+
+    public JButton getjBtnLimpiar() {
+        return jBtnLimpiar;
+    }
     
           
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnAceptar;
     private javax.swing.JButton jBtnAtras;
+    private javax.swing.JButton jBtnLimpiar;
     private javax.swing.JComboBox<String> jCbxArea;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

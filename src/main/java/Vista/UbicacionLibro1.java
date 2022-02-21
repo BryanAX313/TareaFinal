@@ -43,7 +43,6 @@ public class UbicacionLibro1 extends javax.swing.JFrame {
         jLblArea = new javax.swing.JLabel();
         jBtnActualizar = new javax.swing.JButton();
         jBtnAtras = new javax.swing.JButton();
-        jBtnBorrar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jBtnAceptar = new javax.swing.JButton();
@@ -52,7 +51,7 @@ public class UbicacionLibro1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(241, 169, 89));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Ubicacion del libro en Biblioteca", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ubicacion del libro en Biblioteca", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel1.setText("Piso numero:");
@@ -84,9 +83,6 @@ public class UbicacionLibro1 extends javax.swing.JFrame {
         jBtnAtras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jBtnAtras.setText("Atras");
 
-        jBtnBorrar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jBtnBorrar.setText("Borrar");
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -114,8 +110,6 @@ public class UbicacionLibro1 extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jBtnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jBtnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
@@ -144,21 +138,18 @@ public class UbicacionLibro1 extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnActualizar)
-                    .addComponent(jBtnAtras)
-                    .addComponent(jBtnBorrar))
+                    .addComponent(jBtnAtras))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(247, 191, 125));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Ingreso del Codigo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ingreso del Codigo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Lucida Handwriting", 2, 12), new java.awt.Color(255, 255, 255))); // NOI18N
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel6.setText("Codigo");
 
         jBtnAceptar.setText("Aceptar");
-
-        jTxtCodigo.setText("jTextField1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -292,7 +283,6 @@ public class UbicacionLibro1 extends javax.swing.JFrame {
     private javax.swing.JButton jBtnAceptar;
     private javax.swing.JButton jBtnActualizar;
     private javax.swing.JButton jBtnAtras;
-    private javax.swing.JButton jBtnBorrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

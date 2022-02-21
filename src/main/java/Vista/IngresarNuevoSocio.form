@@ -79,7 +79,6 @@
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                 <TitledBorder justification="1" title="Datos Personales">
                   <Font PropertyName="font" name="Century Gothic" size="18" style="3"/>
-                  <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
                 </TitledBorder>
               </Border>
             </Property>
@@ -284,7 +283,6 @@
                   <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
                     <TitledBorder position="1" title="Direnci&#xf3;n Socio">
                       <Font PropertyName="font" name="Century Gothic" size="18" style="3"/>
-                      <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
                     </TitledBorder>
                   </Border>
                 </Property>
@@ -463,18 +461,8 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel13">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\braya\Documents\NetBeansProjects\AF-AsimbayaBryan-Biblioteca\src\main\java\Imagenes\Biblio.jpg"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\braya\Documents\NetBeansProjects\AF-AsimbayaBryan-Biblioteca\src\main\java\Imagenes\Biblio.jpg"/>
-            </Property>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

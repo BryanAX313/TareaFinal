@@ -67,7 +67,7 @@ public class PrestamoLibros extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(247, 191, 125));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Prestar Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 18))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prestar Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 18))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setText("Ingrese el titulo del libro que esta buscando:");
@@ -92,7 +92,7 @@ public class PrestamoLibros extends javax.swing.JFrame {
         jLblTitulo1.setText("Socio:");
 
         jlblUs.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jlblUs.setText("xdo Iniciado Sesion");
+        jlblUs.setText(" Iniciado Sesion");
 
         BtnAtras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         BtnAtras.setText("Atras");

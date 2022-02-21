@@ -191,9 +191,7 @@ public class Biblioteca1 extends javax.swing.JFrame {
 
 
 
-    public JMenuItem getjMnIngresar() {
-        return jMnNuevoSocio;
-    }
+    
 
     public JMenuItem getjMnIngresarLibro() {
         return jMnIngresarLibro;
