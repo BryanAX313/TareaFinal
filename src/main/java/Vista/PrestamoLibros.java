@@ -65,9 +65,10 @@ public class PrestamoLibros extends javax.swing.JFrame {
         BtnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(247, 191, 125));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Prestar Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 18))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Prestar Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 18))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setText("Ingrese el titulo del libro que esta buscando:");
@@ -79,6 +80,7 @@ public class PrestamoLibros extends javax.swing.JFrame {
             }
         });
 
+        jBtnBuscar.setBackground(new java.awt.Color(149, 234, 173));
         jBtnBuscar.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jBtnBuscar.setText("Buscar");
 
@@ -92,8 +94,9 @@ public class PrestamoLibros extends javax.swing.JFrame {
         jLblTitulo1.setText("Socio:");
 
         jlblUs.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jlblUs.setText(" Iniciado Sesion");
+        jlblUs.setText("No Iniciado Sesion xd");
 
+        BtnAtras.setBackground(new java.awt.Color(226, 105, 106));
         BtnAtras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         BtnAtras.setText("Atras");
 
@@ -144,7 +147,7 @@ public class PrestamoLibros extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnBuscar)
                     .addComponent(BtnAtras))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBtnAtras)
                 .addContainerGap())
         );
@@ -162,8 +165,8 @@ public class PrestamoLibros extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

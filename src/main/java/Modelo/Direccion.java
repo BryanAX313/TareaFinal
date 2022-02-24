@@ -40,5 +40,10 @@ public class Direccion {
     public void setNumeracion(String numeracion) {
         this.numeracion = numeracion;
     }
+
+    @Override
+    public String toString() {
+        return " - C Principal: " + callePrincipal + "  - C Secundaria: " + calleSecundaria + "  - Numeracion: " + numeracion ;
+    }
     
 }

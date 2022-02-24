@@ -30,6 +30,7 @@ public class Principal {
        Login login=new Login();
        ActualizarUbiLibro  actulizarUbiLibro=new ActualizarUbiLibro();
        Biblioteca1 bibliotecaP=new Biblioteca1();
+       bibliotecaP.setLocation(340, 150);
        bibliotecaP.setVisible(true);
        ConocerSocios conocerSocios=new ConocerSocios();
        IngresarLibros ingresarLibros=new IngresarLibros();
@@ -39,6 +40,8 @@ public class Principal {
        DireccionSocio direccionSocio =new DireccionSocio();
        Autor1 autor =new Autor1();
        CatalogoLibros cat = new CatalogoLibros();
+       PrestamoLibroClase prestamoLibroC =new PrestamoLibroClase();
+       
        Controlador control=new Controlador( 
                actulizarUbiLibro,
                bibliotecaP,
@@ -48,7 +51,8 @@ public class Principal {
                login,prestamosLibros,
                ubicacionLibro,
                direccionSocio,
-               autor,cat
+               autor,cat,
+               prestamoLibroC
        );
        
        Libro lb=new Libro ("123","EDO",true,new Ubicacion(1,1,1),"");
@@ -57,8 +61,11 @@ public class Principal {
        Libro lb4=new Libro ("126","EDO",true,new Ubicacion(4,1,1),"");
        Libro lb5=new Libro ("127","EDO",true,new Ubicacion(5,1,1),"");
        Libro lb6=new Libro ("128","EDO",true,new Ubicacion(6,1,1),"");
-       
+       //String tipoVivienda, String cedulaId, String nombre, String apellido1, String apellido2, String telefonoMovil, String telefonoConvencional,String usuario
+       Socio s = new Socio("Casa","1726229311","Bryan","Asimbaya","Cando","091634923","0284654","BryanAx");
+       s.agregarDireccion(new Direccion ("La Cocha", "Aurelio Garcia", "17"));
        BaseDatos baseDatos = BaseDatos.getInstancia();
+       baseDatos.añadiSocio(s);
        baseDatos.añadiLibro(lb2);
        baseDatos.añadiLibro(lb);
        baseDatos.añadiLibro(lb3);

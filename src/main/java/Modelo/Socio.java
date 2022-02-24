@@ -5,6 +5,7 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -49,7 +50,7 @@ public class Socio {
         }
         return estado;
     }
-
+ 
     public String getTipoVivienda() {
         return tipoVivienda;
     }
@@ -123,6 +124,8 @@ public class Socio {
     public void setDirecciones(ArrayList<Direccion> direcciones) {
         this.direcciones = direcciones;
     }
+
+   
 
 
     

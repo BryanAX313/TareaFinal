@@ -12,9 +12,10 @@ import java.util.ArrayList;
  */
 public class BaseDatos {
     private static BaseDatos instancia;
-    private ArrayList<Autor>autores=new ArrayList();
+   // private ArrayList<Autor>autores=new ArrayList();
     private ArrayList<Socio>socios=new ArrayList();
     private ArrayList<Libro>librosTotal=new ArrayList();
+    private ArrayList<PrestamoLibroClase>prestamos=new ArrayList();
 
     private BaseDatos() {
     }
@@ -24,15 +25,17 @@ public class BaseDatos {
         }
         return instancia;       
     }
-    public int buscarSocio(String usuario,String apellido,String nombre){
-        int compleatdo=0;
+    public Socio buscarSocio(String usuario,String apellido,String nombre){
+        Socio compleatdo=null;
         for (int i = 0; i <socios.size(); i++) {
             if (socios.get(i).getApellido1().equals(apellido)&&socios.get(i).getNombre().equals(nombre)&&socios.get(i).getUsuario().equals(usuario)) {
-               compleatdo=1; 
+               compleatdo=socios.get(i); 
             }
         }
         return compleatdo;
+        
     }
+    
     public int añadiSocio(Socio nuevoSocio){
         int completado=0, existe=0, noeExiste=0;
         System.out.println("No entra");
@@ -83,6 +86,16 @@ public class BaseDatos {
         return librosEscritos;
     }
     
+    public ArrayList sociosRiesgo(){
+        ArrayList<Socio> sociosRiesgo= new ArrayList();
+        for (int i = 0; i <socios.size(); i++) {
+            if (socios.get(i).getLibrosAdquiridos().size()==10) {
+                sociosRiesgo.add(socios.get(i));
+            }
+        }
+        return sociosRiesgo; 
+    }
+    
     public String buscarLibro(String codigo){
         String posicionlibroBuscado="";               
         int bandera=0;
@@ -110,6 +123,15 @@ public class BaseDatos {
         }      
        return posicionlibroBuscado; 
     }
+    public ArrayList<Socio> buscarSocioT(String usuario,String apellido,String nombre){
+             ArrayList<Socio>posicionSocioBuscado=new ArrayList();
+             for (int i = 0; i <socios.size(); i++) {
+            if (socios.get(i).getApellido1().equals(apellido)&&socios.get(i).getNombre().equals(nombre)&&socios.get(i).getUsuario().equals(usuario)) {
+            }   
+        }      
+       return posicionSocioBuscado; 
+    }
+    
     public ArrayList LibrosDisponibles(){
         ArrayList<Libro> librosDisponibles=new ArrayList();
         for (int i = 0; i <librosTotal.size(); i++) {
@@ -120,13 +142,11 @@ public class BaseDatos {
         return librosDisponibles;
     }
 
-    public ArrayList<Autor> getAutores() {
-        return autores;
+    public ArrayList<PrestamoLibroClase> getPrestamos() {
+        return prestamos;
     }
 
-    public void setAutores(ArrayList<Autor> autores) {
-        this.autores = autores;
-    }
+
 
     public ArrayList<Socio> getSocios() {
         return socios;

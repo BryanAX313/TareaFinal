@@ -22,7 +22,7 @@ public class Autor {
 
     @Override
     public String toString() {
-        return "Nombre:" + nombre + "\nAlias:" + alias ;
+        return "  Nombre: " + nombre + "   Alias: " + alias ;
     }
 
     public String getNombre() {

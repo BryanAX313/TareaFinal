@@ -19,7 +19,7 @@ public class Ubicacion {
 
     @Override
     public String toString() {
-        return "NumeroPiso:" + numeroPiso + "\nNumero Habitacion:" + numeroHabitacion + "\nNumero Estante:" + numeroEstante ;
+        return "N Piso  " + numeroPiso + "     N Habitacion:  " + numeroHabitacion + "     N Estante:  " + numeroEstante ;
     }
 
     public int getNumeroPiso() {
