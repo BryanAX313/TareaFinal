@@ -87,7 +87,6 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
                                   <Component id="jBtnGuardar" min="-2" pref="137" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                                   <Component id="jBtnAtras" min="-2" pref="129" max="-2" attributes="0"/>
@@ -133,7 +132,7 @@
                       <Component id="jComboAreaLibro" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jBtnAutor" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="10" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jBtnAtras" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jBtnGuardar" alignment="3" min="-2" max="-2" attributes="0"/>

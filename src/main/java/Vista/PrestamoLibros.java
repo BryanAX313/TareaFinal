@@ -19,6 +19,7 @@ public class PrestamoLibros extends javax.swing.JFrame {
      */
     public PrestamoLibros() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public JButton getBtnAtras() {
@@ -94,7 +95,7 @@ public class PrestamoLibros extends javax.swing.JFrame {
         jLblTitulo1.setText("Socio:");
 
         jlblUs.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        jlblUs.setText("No Iniciado Sesion xd");
+        jlblUs.setText("No Iniciado Sesion");
 
         BtnAtras.setBackground(new java.awt.Color(226, 105, 106));
         BtnAtras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -156,17 +157,11 @@ public class PrestamoLibros extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();

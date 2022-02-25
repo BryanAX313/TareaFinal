@@ -9,6 +9,7 @@ package Vista;
 import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JTextField;
 
 
 /**
@@ -219,6 +220,10 @@ public class Biblioteca1 extends javax.swing.JFrame {
 
     public JMenuItem getjMnNuevoSocio() {
         return jMnNuevoSocio;
+    }
+
+    public JTextField getjTxtBuscar() {
+        return jTxtBuscar;
     }
 
    

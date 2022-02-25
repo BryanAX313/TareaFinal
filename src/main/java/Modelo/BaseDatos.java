@@ -12,13 +12,13 @@ import java.util.ArrayList;
  */
 public class BaseDatos {
     private static BaseDatos instancia;
-   // private ArrayList<Autor>autores=new ArrayList();
     private ArrayList<Socio>socios=new ArrayList();
     private ArrayList<Libro>librosTotal=new ArrayList();
     private ArrayList<PrestamoLibroClase>prestamos=new ArrayList();
 
     private BaseDatos() {
     }
+    
     public static BaseDatos getInstancia(){
         if(instancia==null){
             instancia=new BaseDatos();
@@ -29,7 +29,7 @@ public class BaseDatos {
         Socio compleatdo=null;
         for (int i = 0; i <socios.size(); i++) {
             if (socios.get(i).getApellido1().equals(apellido)&&socios.get(i).getNombre().equals(nombre)&&socios.get(i).getUsuario().equals(usuario)) {
-               compleatdo=socios.get(i); 
+               compleatdo=socios.get(i);
             }
         }
         return compleatdo;
@@ -38,7 +38,6 @@ public class BaseDatos {
     
     public int añadiSocio(Socio nuevoSocio){
         int completado=0, existe=0, noeExiste=0;
-        System.out.println("No entra");
         for (int i = 0; i <socios.size(); i++) {
             if (socios.get(i).equals(nuevoSocio)) {             
                 existe=1;
@@ -86,11 +85,16 @@ public class BaseDatos {
         return librosEscritos;
     }
     
-    public ArrayList sociosRiesgo(){
+    public ArrayList<Socio> sociosRiesgo(){
         ArrayList<Socio> sociosRiesgo= new ArrayList();
         for (int i = 0; i <socios.size(); i++) {
-            if (socios.get(i).getLibrosAdquiridos().size()==10) {
+            System.out.println(i);
+            if (socios.get(i).getLibrosAdquiridos().size()>9) {
+                System.out.println("IF");
+                System.out.println(socios.get(i).getCedulaId());
                 sociosRiesgo.add(socios.get(i));
+               //System.out.println("IF");
+                //System.out.println(socios.get(i).getCedulaId());
             }
         }
         return sociosRiesgo; 
@@ -146,7 +150,9 @@ public class BaseDatos {
         return prestamos;
     }
 
-
+    public void Prestamo(PrestamoLibroClase pres){      
+        System.out.println(pres.getSocioPrestamo().getUsuario()+pres.getLibroPrestamo().getTitulo()+pres.getFecha());
+    }
 
     public ArrayList<Socio> getSocios() {
         return socios;

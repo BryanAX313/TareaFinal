@@ -78,9 +78,8 @@ public class Controlador implements ActionListener{
             
         ///////*****Conocer Socios*******////////
         this.conocerSocios.getjBtnEliminar().addActionListener(this);
-        this.conocerSocios.getjBtnActualizar().addActionListener(this);
-        this.conocerSocios.getjBtnAtras().addActionListener(this);
         this.conocerSocios.getjBtnNuevo().addActionListener(this);
+        this.conocerSocios.getjBtnAtras().addActionListener(this);
         
         ///////*****Ingresar Libros*******////////
         this.ingresarLibros.getjBtnAtras().addActionListener(this);
@@ -253,23 +252,26 @@ public class Controlador implements ActionListener{
 //BibliotecaP
         
         if (e.getSource().equals(bibliotecaP.getjMnNuevoSocio())){
+             bibliotecaP.dispose();
             ingresarNuevoSocio.show();
         }
+        
         if (e.getSource().equals(bibliotecaP.getjMnIngresarUs())) {
+             bibliotecaP.dispose();
             login.show();
         }
         
         if(e.getSource().equals(bibliotecaP.getjMnUbiLibro())){
-          // bibliotecaP.dispose();
+           bibliotecaP.dispose();
            ubicacionLibro.show();
        }
         if(e.getSource().equals(bibliotecaP.getjMnPrestarLibro())){
-           //bibliotecaP.dispose();
+           bibliotecaP.dispose();
            prestamosLibros.setLocation(bibliotecaP.getX()+10,bibliotecaP.getY()+30);
            prestamosLibros.show();
        }
         if(e.getSource().equals(bibliotecaP.getjMnListaSocio())){
-          //  bibliotecaP.dispose();
+            bibliotecaP.dispose();
             if (prestamosLibros.getJlblUs().getText().equals("No Iniciado Sesion")) {
                 JOptionPane.showMessageDialog(null, "Necesita Ingresar Sesion para Conocer lista de Socios");
             }else{
@@ -279,7 +281,7 @@ public class Controlador implements ActionListener{
             }
        }
         if(e.getSource().equals(bibliotecaP.getjMnIngresarLibro())){
-         //   bibliotecaP.dispose();
+            bibliotecaP.dispose();
             ingresarLibros.show();
        }
        
@@ -288,14 +290,30 @@ public class Controlador implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Necesita Ingresar Sesion para Conocer lista de Socios");
             }else{
                 ArrayList<Socio> lista =new ArrayList();
-                     mostrarS();
+                    mostrarPlus();
                     conocerSocios.show();          
             }   
            
        }
        if(e.getSource().equals(bibliotecaP.getjBtnBuscar())){
-           bibliotecaP.dispose();
-           ubicacionLibro.show();
+           
+           if (prestamosLibros.getJlblUs().getText().equals("No Iniciado Sesion")) {
+                JOptionPane.showMessageDialog(null, "Necesita Ingresar Sesion para pedir un libro");
+            }else{
+                             
+                ArrayList<Libro> lista =new ArrayList();
+                if (baseDatos.buscarLibroT(bibliotecaP.getjTxtBuscar().getText()).size()==0) {
+                    JOptionPane.showMessageDialog(null, "Libro No encontrado");
+                }else{
+                    catalogoLibros.show(); 
+                    bibliotecaP.dispose();
+                    lista=baseDatos.buscarLibroT(bibliotecaP.getjTxtBuscar().getText());
+                    mostrar(lista);
+                }      
+            }
+
+           
+           
        }
        
  //IngresarNuevoSocio
@@ -340,10 +358,7 @@ public class Controlador implements ActionListener{
             String g =String.valueOf(conocerSocios.getjTbtlSocios().getModel().getValueAt(c,0));
             System.out.println(g);
             Socio auxS=datosSocio();               
-            if (baseDatos.buscarLibro("PRUEBA").equals("No encontrado")) {
-                baseDatos.añadiSocio(auxS);
-            }
-            ;
+      
             baseDatos.getSocios().remove(baseDatos.buscarSocio(g, g, g));
             
             x=0;
@@ -373,40 +388,27 @@ public class Controlador implements ActionListener{
        }
         
 //ConocerSocios
-
         if(e.getSource().equals(conocerSocios.getjBtnAtras())){
-           conocerSocios.dispose();
-           bibliotecaP.show();
-       }
-        if(e.getSource().equals(conocerSocios.getjBtnActualizar())){
-           int c,telefonoMovil;
-           Socio aux;
-            ArrayList<Socio> Mat =new ArrayList();
-           try{
-               c=conocerSocios.getjTbtlSocios().getSelectedRow();
-               aux=Mat.get(c);
-               telefonoMovil=Integer.parseInt(JOptionPane.showInputDialog("Nuevo nombre"));
-               aux.setTelefonoMovil(" "); 
-           }catch(Exception x){
-               JOptionPane.showMessageDialog(null,"Escojer una fila");
-           }
-           
-           mostrarS();
-       }
+        conocerSocios.dispose();
+        bibliotecaP.show();
+        }
+      
         if(e.getSource().equals(conocerSocios.getjBtnEliminar())){
             int c;
-             ArrayList<Socio> Mat =new ArrayList();
-               c=conocerSocios.getjTbtlSocios().getSelectedRow();
-             String s =String.valueOf(conocerSocios.getjTbtlSocios().getModel().getValueAt(c,0));         
+            c=conocerSocios.getjTbtlSocios().getSelectedRow();
+               
+             String usuario = String.valueOf(conocerSocios.getjTbtlSocios().getModel().getValueAt(c,0)); 
+             String nombre = String.valueOf(conocerSocios.getjTbtlSocios().getModel().getValueAt(c,1));
+             String apellido = String.valueOf(conocerSocios.getjTbtlSocios().getModel().getValueAt(c,3));
            try{   
-            
-            baseDatos.getSocios().remove(baseDatos.buscarSocioT(s, s, s));
-               System.out.println("Imprime eliminar");
-              
+            baseDatos.getSocios().remove(baseDatos.buscarSocio(usuario,apellido ,nombre));            
            }catch (Exception x){ 
+                
                JOptionPane.showMessageDialog(null, "Ecojer una Fila");
            }
+          
             mostrarS();      
+           
        }
       
         if(e.getSource().equals(conocerSocios.getjBtnNuevo())){
@@ -477,7 +479,7 @@ public class Controlador implements ActionListener{
        
 //PrestamoLibro
         if(e.getSource().equals(prestamosLibros.getBtnAtras())){
-           //prestamosLibros.dispose();
+           prestamosLibros.dispose();
            bibliotecaP.show();
        }
         if(e.getSource().equals(prestamosLibros.getjBtnBuscar())){
@@ -499,6 +501,7 @@ public class Controlador implements ActionListener{
 //UbicacionLibro1
         if(e.getSource().equals(ubicacionLibro.getjBtnAtras())){
            ubicacionLibro.dispose();
+           bibliotecaP.show();
        }
 
         if(e.getSource().equals(ubicacionLibro.getjBtnAceptar())){
@@ -625,32 +628,75 @@ public class Controlador implements ActionListener{
         }       
     }
     
-    private void mostrarS(){
-        String Mat[][]=new String[baseDatos.getSocios().size()][8];
+        private void mostrarPlus(){
+        
+        String Mat[][]=new String[baseDatos.getSocios().size()][9];
          Socio aux;
-        for (int i = 0; i <baseDatos.getSocios().size() ; i++) {
-            aux=baseDatos.getSocios().get(i);
-            Mat[i][0]=aux.getNombre();
-            Mat[i][1]=aux.getApellido2();
-            Mat[i][2]=aux.getApellido1();
-            Mat[i][3]=aux.getTelefonoConvencional();      
-            Mat[i][4]=aux.getTelefonoMovil();
-            Mat[i][5]=aux.getLibrosAdquiridos().size()+"";
-            Mat[i][6]="";
+        for (int i = 0; i <baseDatos.sociosRiesgo().size() ; i++) {
+            aux=baseDatos.sociosRiesgo().get(i);
+            Mat[i][0]=aux.getUsuario();
+            Mat[i][1]=aux.getNombre();
+            Mat[i][2]=aux.getApellido2();
+            Mat[i][3]=aux.getApellido1();
+            Mat[i][4]=aux.getTelefonoConvencional();      
+            Mat[i][5]=aux.getTelefonoMovil();
+            Mat[i][6]=aux.getLibrosAdquiridos().size()+"";
+            Mat[i][7]="";
             for (int j = 0; j < aux.getDirecciones().size(); j++) {
-                Mat[i][6]=Mat[i][6]+ aux.getDirecciones().get(i).toString();
+                Mat[i][7]=Mat[i][7]+ aux.getDirecciones().get(j).toString();
             }
             if (aux.getLibrosAdquiridos().size()>=10) {
-                Mat[i][7]="Riesgo";
+                Mat[i][8]="Riesgo";
             }else{
-                Mat[i][7]="Confiable";
+                Mat[i][8]="Confiable";
             }
 
         }
         conocerSocios.getjTbtlSocios().setModel(new javax.swing.table.DefaultTableModel(
             Mat,
             new String [] {
-                "Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Direcion", "Confiabilidad"
+                "Usuario", "Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Direccion", "Confiabilidad"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        
+            
+        }
+        
+    private void mostrarS(){
+        String Mat[][]=new String[baseDatos.getSocios().size()][9];
+         Socio aux;
+        for (int i = 0; i <baseDatos.getSocios().size() ; i++) {
+            aux=baseDatos.getSocios().get(i);
+            Mat[i][0]=aux.getUsuario();
+            Mat[i][1]=aux.getNombre();
+            Mat[i][2]=aux.getApellido2();
+            Mat[i][3]=aux.getApellido1();
+            Mat[i][4]=aux.getTelefonoConvencional();      
+            Mat[i][5]=aux.getTelefonoMovil();
+            Mat[i][6]=aux.getLibrosAdquiridos().size()+"";
+            Mat[i][7]="";
+            for (int j = 0; j < aux.getDirecciones().size(); j++) {
+                Mat[i][7]=Mat[i][7]+ aux.getDirecciones().get(j).toString();
+            }
+            if (aux.getLibrosAdquiridos().size()>=10) {
+                Mat[i][8]="Riesgo";
+            }else{
+                Mat[i][8]="Confiable";
+            }
+
+        }
+        conocerSocios.getjTbtlSocios().setModel(new javax.swing.table.DefaultTableModel(
+            Mat,
+            new String [] {
+                "Usuario","Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Direcion", "Confiabilidad"
             }
         ));
          
@@ -689,34 +735,7 @@ public class Controlador implements ActionListener{
     ingresarLibros.getjTxtEstante().setText(String.valueOf(libro.getUbicacion().getNumeroEstante()));
     ingresarLibros.getjTxtNumeroPiso().setText(String.valueOf(libro.getUbicacion().getNumeroPiso()));    
     }
-  /*  private void ingresarDatosSocio(){
-        String tipoVivienda;
-            if (ingresarNuevoSocio.getjComboBox1().getSelectedIndex()==1) {
-                tipoVivienda="Casa";
-            }else{
-                if(ingresarNuevoSocio.getjComboBox1().getSelectedIndex()==2){
-                  tipoVivienda="Departamento";  
-                }else{
-                    if (ingresarNuevoSocio.getjComboBox1().getSelectedIndex()==3) {
-                       tipoVivienda="Oficiona";  
-                    }else{
-                        tipoVivienda="Empresa"; 
-                    }
-                }
-            }
-            Socio auxSocio =new Socio(tipoVivienda, ingresarNuevoSocio.getjTxtCI().getText(), ingresarNuevoSocio.getjTxtNombre1().getText()
-                    , ingresarNuevoSocio.getjTxtApellido1().getText(), ingresarNuevoSocio.getjTxtApellido2().getText()
-                    , ingresarNuevoSocio.getjTxtMovil().getText(),ingresarNuevoSocio.getjTxtConvencional().getText(),ingresarNuevoSocio.getjTxtUsuario().getText());
-            
-            auxSocio.getDirecciones().add(new Direccion(ingresarNuevoSocio.getjTxtCprincipal().getText()
-                    ,ingresarNuevoSocio.getjTxtCsecuandaria().getText(), ingresarNuevoSocio.getjTxtNumeracion().getText()));
 
-            if (baseDatos.añadiSocio(auxSocio)==1) {
-               JOptionPane.showMessageDialog(null, "Completado");
-            }else{
-                JOptionPane.showMessageDialog(null, "ERROR");
-            }
-    }*/
     private Libro datosLibro(){  
              Ubicacion ubiLib = new Ubicacion (
                     Integer.parseInt(ingresarLibros.getjTxtNumeroPiso().getText()),

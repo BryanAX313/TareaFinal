@@ -18,6 +18,7 @@ public class Autor1 extends javax.swing.JFrame {
      */
     public Autor1() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     public JTextField getjTxtNombre() {
