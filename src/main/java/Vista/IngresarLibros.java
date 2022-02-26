@@ -63,6 +63,15 @@ public class IngresarLibros extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setText("Título:");
 
+        jTxtCodigoLibro.setText(" ");
+        jTxtCodigoLibro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtCodigoLibroActionPerformed(evt);
+            }
+        });
+
+        jTxtTitulo.setText(" ");
+
         jBtnAtras.setBackground(new java.awt.Color(226, 105, 106));
         jBtnAtras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jBtnAtras.setText("Atras");
@@ -77,6 +86,7 @@ public class IngresarLibros extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel4.setText("Numero Piso");
 
+        jTxtNumeroPiso.setText(" ");
         jTxtNumeroPiso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtNumeroPisoActionPerformed(evt);
@@ -85,6 +95,10 @@ public class IngresarLibros extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setText("Numero Habitacion");
+
+        jTxtEstante.setText(" ");
+
+        jTxtNumeroHabitacion.setText(" ");
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel6.setText("Numero Estante");
@@ -132,7 +146,7 @@ public class IngresarLibros extends javax.swing.JFrame {
                                     .addComponent(jLabel5))
                                 .addGap(18, 18, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jBtnAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 119, Short.MAX_VALUE)
+                                    .addComponent(jBtnAutor, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                                     .addComponent(jTxtNumeroHabitacion)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jBtnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -197,6 +211,10 @@ public class IngresarLibros extends javax.swing.JFrame {
     private void jComboAreaLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboAreaLibroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboAreaLibroActionPerformed
+
+    private void jTxtCodigoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtCodigoLibroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtCodigoLibroActionPerformed
 
     /**
      * @param args the command line arguments

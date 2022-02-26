@@ -113,11 +113,11 @@ public class ConocerSocios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Usuario", "Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Direccion", "Confiabilidad"
+                "Usuario", "Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Titulo Libro", "Direccion", "Confiabilidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

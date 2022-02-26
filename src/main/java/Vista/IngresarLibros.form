@@ -171,8 +171,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTxtCodigoLibro">
+          <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtCodigoLibroActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="jTxtTitulo">
+          <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jBtnAtras">
           <Properties>
@@ -213,6 +222,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTxtNumeroPiso">
+          <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTxtNumeroPisoActionPerformed"/>
           </Events>
@@ -226,8 +238,14 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTxtEstante">
+          <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTxtNumeroHabitacion">
+          <Properties>
+            <Property name="text" type="java.lang.String" value=" "/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>

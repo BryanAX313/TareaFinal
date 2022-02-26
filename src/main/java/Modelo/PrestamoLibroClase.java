@@ -14,6 +14,7 @@ public class PrestamoLibroClase {
     private ArrayList<Socio> socios;
     private ArrayList<Libro> librosTotal;
     private BaseDatos baseDatos;
+    
     private String fecha;
     private Socio socioPrestamo;
     private Libro libroPrestamo;

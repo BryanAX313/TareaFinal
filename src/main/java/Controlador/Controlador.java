@@ -429,10 +429,11 @@ public class Controlador implements ActionListener{
             int x = baseDatos.añadiLibro(auxLibro);
             }
         
-        if(e.getSource().equals(ingresarLibros.getjBtnGuardar())){
+        if(e.getSource().equals(ingresarLibros.getjBtnGuardar())){  
         int x=1,c=0;            
         c=catalogoLibros.getjTblLibros().getSelectedRow();
             System.out.println(c);
+            try{
         if (c!=(-1)) {                  
             String g =String.valueOf(catalogoLibros.getjTblLibros().getModel().getValueAt(c,0));
             String codigoAux =ingresarLibros.getjTxtCodigoLibro().getText();
@@ -475,6 +476,10 @@ public class Controlador implements ActionListener{
 
         }
         limpiarNuevoLibro();
+         }
+        catch(Exception v){
+        JOptionPane.showMessageDialog(null, "Ingresar datos del LIBRO");
+        }
 }
        
 //PrestamoLibro
@@ -484,7 +489,7 @@ public class Controlador implements ActionListener{
        }
         if(e.getSource().equals(prestamosLibros.getjBtnBuscar())){
             bibliotecaP.dispose();
-            prestamosLibros.dispose();
+            
             if (prestamosLibros.getJlblUs().getText().equals("No Iniciado Sesion")) {
                 JOptionPane.showMessageDialog(null, "Necesita Ingresar Sesion para pedir un libro");
             }else{
@@ -493,6 +498,7 @@ public class Controlador implements ActionListener{
                 if (baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText()).size()==0) {
                     JOptionPane.showMessageDialog(null, "Libro No encontrado");
                 }else{
+                    prestamosLibros.dispose();
                     lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
                     mostrar(lista);
                 }      
@@ -577,12 +583,13 @@ public class Controlador implements ActionListener{
                     Integer.parseInt(actulizarUbiLibro.getjTxtHabitacion().getText()),
                     Integer.parseInt(actulizarUbiLibro.getjTxtEstante().getText())
             );
-            String[] area={"Filosofia","Religion","Ciencias Sociales","Filogia","Ciencias Naturales","Tecnicas","Ciencias Practicas","Arte y Literatura","Historia"};
+            String[] area={"Generalidades","Filosofia","Religion","Ciencias Sociales","Filogia","Ciencias Naturales","Tecnicas","Ciencias Practicas","Arte y Literatura","Historia"};
             System.out.println(String.valueOf(ingresarLibros.getjComboAreaLibro().getItemAt(2)));
             
             for (int i = 0; i < baseDatos.getLibrosTotal().size(); i++) {
                 if ( baseDatos.getLibrosTotal().get(i).getCodigo().equals(ubicacionLibro.getjTxtCodigo().getText())) {
-                    if (baseDatos.getLibrosTotal().get(i).actualizarUbi(ubi, area[ingresarLibros.getjComboAreaLibro().getSelectedIndex()])==1) {
+                        if (baseDatos.getLibrosTotal().get(i).actualizarUbi(ubi, area[ actulizarUbiLibro.getjCbxArea().getSelectedIndex()])==1) {
+                        System.out.println(actulizarUbiLibro.getjCbxArea().getSelectedIndex());
                         JOptionPane.showMessageDialog(null, "Actualizado");
                     }else{
                         JOptionPane.showMessageDialog(null, "No actualizado");
@@ -630,7 +637,7 @@ public class Controlador implements ActionListener{
     
         private void mostrarPlus(){
         
-        String Mat[][]=new String[baseDatos.getSocios().size()][9];
+        String Mat[][]=new String[baseDatos.getSocios().size()][10];
          Socio aux;
         for (int i = 0; i <baseDatos.sociosRiesgo().size() ; i++) {
             aux=baseDatos.sociosRiesgo().get(i);
@@ -642,20 +649,24 @@ public class Controlador implements ActionListener{
             Mat[i][5]=aux.getTelefonoMovil();
             Mat[i][6]=aux.getLibrosAdquiridos().size()+"";
             Mat[i][7]="";
+            for (int j = 0; j < aux.getLibrosAdquiridos().size(); j++) {
+                Mat[i][7]=aux.getLibrosAdquiridos().get(i).getTitulo()+Mat[i][7];
+            }
+            Mat[i][8]="";
             for (int j = 0; j < aux.getDirecciones().size(); j++) {
-                Mat[i][7]=Mat[i][7]+ aux.getDirecciones().get(j).toString();
+                Mat[i][8]=Mat[i][8]+ aux.getDirecciones().get(j).toString();
             }
             if (aux.getLibrosAdquiridos().size()>=10) {
-                Mat[i][8]="Riesgo";
+                Mat[i][9]="Riesgo";
             }else{
-                Mat[i][8]="Confiable";
+                Mat[i][9]="Confiable";
             }
 
         }
         conocerSocios.getjTbtlSocios().setModel(new javax.swing.table.DefaultTableModel(
             Mat,
             new String [] {
-                "Usuario", "Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Direccion", "Confiabilidad"
+                "Usuario", "Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Titulo Libro", "Direccion", "Confiabilidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -671,10 +682,11 @@ public class Controlador implements ActionListener{
         }
         
     private void mostrarS(){
-        String Mat[][]=new String[baseDatos.getSocios().size()][9];
+        String Mat[][]=new String[baseDatos.getSocios().size()][10];
          Socio aux;
         for (int i = 0; i <baseDatos.getSocios().size() ; i++) {
             aux=baseDatos.getSocios().get(i);
+            
             Mat[i][0]=aux.getUsuario();
             Mat[i][1]=aux.getNombre();
             Mat[i][2]=aux.getApellido2();
@@ -683,20 +695,24 @@ public class Controlador implements ActionListener{
             Mat[i][5]=aux.getTelefonoMovil();
             Mat[i][6]=aux.getLibrosAdquiridos().size()+"";
             Mat[i][7]="";
+            for (int j = 0; j < aux.getLibrosAdquiridos().size(); j++) {
+                Mat[i][7]=aux.getLibrosAdquiridos().get(i).getTitulo()+Mat[i][7];
+            }
+            Mat[i][8]="";
             for (int j = 0; j < aux.getDirecciones().size(); j++) {
-                Mat[i][7]=Mat[i][7]+ aux.getDirecciones().get(j).toString();
+                Mat[i][8]=Mat[i][8]+ aux.getDirecciones().get(j).toString();
             }
             if (aux.getLibrosAdquiridos().size()>=10) {
-                Mat[i][8]="Riesgo";
+                Mat[i][9]="Riesgo";
             }else{
-                Mat[i][8]="Confiable";
+                Mat[i][9]="Confiable";
             }
 
         }
         conocerSocios.getjTbtlSocios().setModel(new javax.swing.table.DefaultTableModel(
             Mat,
             new String [] {
-                "Usuario","Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Direcion", "Confiabilidad"
+                "Usuario", "Nombre", "Apellido 2", "Apellido", "Telefono Convencional", "Telefono Movil", "N Libros Prestados", "Titulo Libro", "Direccion", "Confiabilidad"
             }
         ));
          
