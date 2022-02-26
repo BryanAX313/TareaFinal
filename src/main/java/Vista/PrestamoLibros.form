@@ -59,7 +59,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jBtnAtras" alignment="1" min="-2" pref="73" max="-2" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="417" max="-2" attributes="0"/>
+                                  <Component id="jLblInstruccion" min="-2" pref="417" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -73,7 +73,7 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLblTitulo" min="-2" pref="69" max="-2" attributes="0"/>
+                                      <Component id="jLblBuscar" min="-2" pref="69" max="-2" attributes="0"/>
                                       <Component id="jLblTitulo1" alignment="0" min="-2" pref="69" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -93,11 +93,11 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="jLblInstruccion" min="-2" pref="47" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTxtTituloL" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLblTitulo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLblBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -117,7 +117,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="jLblInstruccion">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="18" style="1"/>
@@ -154,7 +154,7 @@
             <Property name="text" type="java.lang.String" value="Atras"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLblTitulo">
+        <Component class="javax.swing.JLabel" name="jLblBuscar">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="0"/>

@@ -37,24 +37,15 @@ public class BaseDatos {
     }
     
     public int añadiSocio(Socio nuevoSocio){
-        int completado=0, existe=0, noeExiste=0;
+        int completado=0, existe=0;
         for (int i = 0; i <socios.size(); i++) {
-            if (socios.get(i).equals(nuevoSocio)) {             
+            if (socios.get(i).getUsuario().equals(nuevoSocio.getUsuario())) {             
                 existe=1;
-            }else{
-                noeExiste=1;
-            }         
+            }       
         }
-        if (noeExiste==1) {
+        if (existe==0) {
             socios.add(nuevoSocio);
             completado=1;
-        }else{
-            if (existe==0) {
-                socios.add(nuevoSocio);
-                completado=1;
-            }else{
-                completado=0;
-            }
         }    
         return completado;
     }

@@ -6,6 +6,7 @@ package Vista;
 
 import Modelo.Socio;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JTable;
 
 /**
@@ -62,6 +63,7 @@ public class ConocerSocios extends javax.swing.JFrame {
         jBtnAtras = new javax.swing.JButton();
         jBtnEliminar = new javax.swing.JButton();
         jBtnNuevo = new javax.swing.JButton();
+        jLblBandera = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTbtlSocios = new javax.swing.JTable();
 
@@ -84,6 +86,9 @@ public class ConocerSocios extends javax.swing.JFrame {
 
         jBtnNuevo.setText("Nuevo");
 
+        jLblBandera.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLblBandera.setText("SOCIOS TOTALES");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -93,18 +98,21 @@ public class ConocerSocios extends javax.swing.JFrame {
                 .addComponent(jBtnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(63, 63, 63)
                 .addComponent(jBtnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1062, Short.MAX_VALUE)
+                .addGap(343, 343, 343)
+                .addComponent(jLblBandera)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 605, Short.MAX_VALUE)
                 .addComponent(jBtnAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnAtras)
                     .addComponent(jBtnEliminar)
-                    .addComponent(jBtnNuevo))
+                    .addComponent(jBtnNuevo)
+                    .addComponent(jLblBandera))
                 .addGap(14, 14, 14))
         );
 
@@ -197,6 +205,10 @@ public class ConocerSocios extends javax.swing.JFrame {
         });
     }
 
+    public JLabel getjLblBandera() {
+        return jLblBandera;
+    }
+
 
    
 
@@ -206,6 +218,7 @@ public class ConocerSocios extends javax.swing.JFrame {
     private javax.swing.JButton jBtnAtras;
     private javax.swing.JButton jBtnEliminar;
     private javax.swing.JButton jBtnNuevo;
+    private javax.swing.JLabel jLblBandera;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -24,6 +24,14 @@ public class Biblioteca1 extends javax.swing.JFrame {
        
     }
 
+    public JMenuItem getjMnAutores() {
+        return jMnAutores;
+    }
+
+    public void setjMnAutores(JMenuItem jMnAutores) {
+        this.jMnAutores = jMnAutores;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,6 +60,7 @@ public class Biblioteca1 extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMnSociosNoConfiables = new javax.swing.JMenuItem();
         jMnListaSocio = new javax.swing.JMenuItem();
+        jMnAutores = new javax.swing.JMenuItem();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -143,6 +152,15 @@ public class Biblioteca1 extends javax.swing.JFrame {
         });
         jMenu6.add(jMnListaSocio);
 
+        jMnAutores.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_TAB, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        jMnAutores.setText("Mostrar Autores");
+        jMnAutores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMnAutoresActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMnAutores);
+
         jMenuBar1.add(jMenu6);
 
         setJMenuBar(jMenuBar1);
@@ -168,6 +186,10 @@ public class Biblioteca1 extends javax.swing.JFrame {
     private void jMnUbiLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnUbiLibroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMnUbiLibroActionPerformed
+
+    private void jMnAutoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMnAutoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMnAutoresActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -243,6 +265,7 @@ public class Biblioteca1 extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMnAutores;
     private javax.swing.JMenuItem jMnIngresarLibro;
     private javax.swing.JMenuItem jMnIngresarUs;
     private javax.swing.JMenuItem jMnListaSocio;

@@ -6,6 +6,7 @@ package Vista;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
@@ -34,6 +35,18 @@ public class PrestamoLibros extends javax.swing.JFrame {
         return jlblUs;
     }
 
+    public JLabel getjLblBuscar() {
+        return jLblBuscar;
+    }
+
+    public JLabel getjLblInstruccion() {
+        return jLblInstruccion;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
 
 
 
@@ -56,11 +69,11 @@ public class PrestamoLibros extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLblInstruccion = new javax.swing.JLabel();
         jTxtTituloL = new javax.swing.JTextField();
         jBtnBuscar = new javax.swing.JButton();
         jBtnAtras = new javax.swing.JButton();
-        jLblTitulo = new javax.swing.JLabel();
+        jLblBuscar = new javax.swing.JLabel();
         jLblTitulo1 = new javax.swing.JLabel();
         jlblUs = new javax.swing.JLabel();
         BtnAtras = new javax.swing.JButton();
@@ -71,8 +84,8 @@ public class PrestamoLibros extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(247, 191, 125));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Prestar Libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Century Gothic", 1, 18))); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel1.setText("Ingrese el titulo del libro que esta buscando:");
+        jLblInstruccion.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLblInstruccion.setText("Ingrese el titulo del libro que esta buscando:");
 
         jTxtTituloL.setBackground(new java.awt.Color(233, 247, 245));
         jTxtTituloL.addActionListener(new java.awt.event.ActionListener() {
@@ -88,8 +101,8 @@ public class PrestamoLibros extends javax.swing.JFrame {
         jBtnAtras.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jBtnAtras.setText("Atras");
 
-        jLblTitulo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLblTitulo.setText("Titulo:");
+        jLblBuscar.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLblBuscar.setText("Titulo:");
 
         jLblTitulo1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLblTitulo1.setText("Socio:");
@@ -113,7 +126,7 @@ public class PrestamoLibros extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jBtnAtras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLblInstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(172, 172, 172))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -123,7 +136,7 @@ public class PrestamoLibros extends javax.swing.JFrame {
                                 .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLblBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLblTitulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -135,11 +148,11 @@ public class PrestamoLibros extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLblInstruccion, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTxtTituloL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLblTitulo))
+                    .addComponent(jLblBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLblTitulo1)
@@ -210,8 +223,8 @@ public class PrestamoLibros extends javax.swing.JFrame {
     private javax.swing.JButton BtnAtras;
     private javax.swing.JButton jBtnAtras;
     private javax.swing.JButton jBtnBuscar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLblTitulo;
+    private javax.swing.JLabel jLblBuscar;
+    private javax.swing.JLabel jLblInstruccion;
     private javax.swing.JLabel jLblTitulo1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTxtTituloL;
