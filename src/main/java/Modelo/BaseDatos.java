@@ -22,6 +22,7 @@ public class BaseDatos {
     public static BaseDatos getInstancia(){
         if(instancia==null){
             instancia=new BaseDatos();
+
         }
         return instancia;       
     }
@@ -79,13 +80,8 @@ public class BaseDatos {
     public ArrayList<Socio> sociosRiesgo(){
         ArrayList<Socio> sociosRiesgo= new ArrayList();
         for (int i = 0; i <socios.size(); i++) {
-            System.out.println(i);
             if (socios.get(i).getLibrosAdquiridos().size()>9) {
-                System.out.println("IF");
-                System.out.println(socios.get(i).getCedulaId());
                 sociosRiesgo.add(socios.get(i));
-               //System.out.println("IF");
-                //System.out.println(socios.get(i).getCedulaId());
             }
         }
         return sociosRiesgo; 
@@ -141,9 +137,6 @@ public class BaseDatos {
         return prestamos;
     }
 
-    public void Prestamo(PrestamoLibroClase pres){      
-        System.out.println(pres.getSocioPrestamo().getUsuario()+pres.getLibroPrestamo().getTitulo()+pres.getFecha());
-    }
 
     public ArrayList<Socio> getSocios() {
         return socios;

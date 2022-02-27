@@ -49,6 +49,9 @@ public class Biblioteca1 extends javax.swing.JFrame {
         jTxtBuscar = new javax.swing.JTextField();
         jBtnBuscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu = new javax.swing.JMenu();
         jMnNuevoSocio = new javax.swing.JMenuItem();
@@ -79,9 +82,9 @@ public class Biblioteca1 extends javax.swing.JFrame {
         jPanel1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Courier New", 3, 48)); // NOI18N
-        jLabel1.setText("Biblioteca B.G");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Courier New", 3, 18)); // NOI18N
+        jLabel1.setText("Realizado por: Asimbaya Bryan, Echeverria Gabriela");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 420, -1, -1));
         jLabel1.getAccessibleContext().setAccessibleDescription("");
 
         jTxtBuscar.setBackground(new java.awt.Color(233, 247, 245));
@@ -97,7 +100,19 @@ public class Biblioteca1 extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         jLabel3.setToolTipText("");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 454));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 4, 860, 450));
+
+        jLabel2.setFont(new java.awt.Font("Courier New", 3, 48)); // NOI18N
+        jLabel2.setText("Biblioteca B.G");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Courier New", 3, 24)); // NOI18N
+        jLabel4.setText("Universidad de las Fuerzas Armadas E.S.P.E");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Courier New", 3, 14)); // NOI18N
+        jLabel5.setText("\"Las malas bibliotecas crean colecciones,las grandes bibliotecas crean comunidades \"");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
         jMenuBar1.setBackground(new java.awt.Color(241, 169, 89));
 
@@ -257,7 +272,10 @@ public class Biblioteca1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnBuscar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JMenu jMenu;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;

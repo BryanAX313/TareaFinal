@@ -123,7 +123,7 @@ public class Login extends javax.swing.JFrame {
         jBtnCancelar.setText("Cancelar");
 
         BtnCerrarSesion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        BtnCerrarSesion.setText("Registrarse");
+        BtnCerrarSesion.setText("Cerrar Secion");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

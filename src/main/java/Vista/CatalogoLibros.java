@@ -48,6 +48,7 @@ public class CatalogoLibros extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLblBandera = new javax.swing.JLabel();
+        jBtnActualizar = new javax.swing.JButton();
 
         jLabel3.setText("Dia");
 
@@ -103,6 +104,8 @@ public class CatalogoLibros extends javax.swing.JFrame {
         jLblBandera.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLblBandera.setText("LIBROS TOTALES");
 
+        jBtnActualizar.setText("Actualizar Tabla");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -113,9 +116,11 @@ public class CatalogoLibros extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jBtnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85)
+                        .addGap(18, 18, 18)
+                        .addComponent(jBtnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jBtnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111)
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -165,7 +170,8 @@ public class CatalogoLibros extends javax.swing.JFrame {
                     .addComponent(jBtnPrestar)
                     .addComponent(jTxtDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTxtAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTxtMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTxtMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBtnActualizar))
                 .addGap(14, 14, 14))
         );
 
@@ -218,6 +224,11 @@ public class CatalogoLibros extends javax.swing.JFrame {
         });
     }
 
+    public JButton getjBtnActualizar() {
+        return jBtnActualizar;
+    }
+
+        
     public JButton getjBtnBuscar() {
         return jBtnBuscar;
     }
@@ -264,6 +275,7 @@ public class CatalogoLibros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBtnActualizar;
     private javax.swing.JButton jBtnBuscar;
     private javax.swing.JButton jBtnEliminar;
     private javax.swing.JButton jBtnModificar;

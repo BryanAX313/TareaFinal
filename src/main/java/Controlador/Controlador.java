@@ -129,6 +129,7 @@ public class Controlador implements ActionListener{
         this.catalogoLibros.getjBtnModificar().addActionListener(this);
         this.catalogoLibros.getjBtnSalir().addActionListener(this);
         this.catalogoLibros.getjBtnPrestar().addActionListener(this);
+        this.catalogoLibros.getjBtnActualizar().addActionListener(this);
 
     }
     
@@ -137,6 +138,22 @@ public class Controlador implements ActionListener{
     public void actionPerformed(ActionEvent e) {
 
 // Catalogo Libros
+
+        if (e.getSource().equals(catalogoLibros.getjBtnActualizar())) {
+            ArrayList<Libro> lista =new ArrayList();
+            if (catalogoLibros.getjLblBandera().getText().equals("LIBROS ESCRITOS")) {
+                lista=baseDatos.librosAutores(prestamosLibros.getjTxtTituloL().getText());
+                mostrar(lista);
+            }else{
+                if (bibliotecaP.getjTxtBuscar().getText().length()!=0) {
+                    lista=baseDatos.buscarLibroT(bibliotecaP.getjTxtBuscar().getText());
+                }else{
+                    lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+                }
+                mostrar(lista);
+            }
+        }
+        
          if (e.getSource().equals(catalogoLibros.getjBtnSalir())) {
             catalogoLibros.dispose();
             limpiarConocerSocios();
@@ -148,22 +165,24 @@ public class Controlador implements ActionListener{
                int c;
                 c=catalogoLibros.getjTblLibros().getSelectedRow();
                 String g =String.valueOf(catalogoLibros.getjTblLibros().getModel().getValueAt(c,0));
-                System.out.println(g);
                if (baseDatos.buscarLibro(g).equals("No encontrado")) {
                    JOptionPane.showMessageDialog(null, "Ya no quedan ejemplares");
                }else{
                    baseDatos.getLibrosTotal().remove(Integer.parseInt(baseDatos.buscarLibro(g)));
                } 
-               System.out.println("xddddd");
            }catch (Exception x){ 
                JOptionPane.showMessageDialog(null, "Ecojer una Fila");
            }
             ArrayList<Libro> lista =new ArrayList();
             if (catalogoLibros.getjLblBandera().getText().equals("LIBROS ESCRITOS")) {
-                lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+                lista=baseDatos.librosAutores(prestamosLibros.getjTxtTituloL().getText());
                 mostrar(lista);
             }else{
-                lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+                if (bibliotecaP.getjTxtBuscar().getText().length()!=0) {
+                    lista=baseDatos.buscarLibroT(bibliotecaP.getjTxtBuscar().getText());
+                }else{
+                    lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+                }
                 mostrar(lista);
             }
             
@@ -198,6 +217,7 @@ public class Controlador implements ActionListener{
          }catch(Exception x){
         JOptionPane.showMessageDialog(null,"Escojer una fila");
           }
+            
 
         }
         if (e.getSource().equals(catalogoLibros.getjBtnPrestar())) { 
@@ -244,15 +264,18 @@ public class Controlador implements ActionListener{
             ArrayList<Libro> lista =new ArrayList();
             
             if (catalogoLibros.getjLblBandera().getText().equals("LIBROS ESCRITOS")) {
-                lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+                lista=baseDatos.librosAutores(prestamosLibros.getjTxtTituloL().getText());
                 mostrar(lista);
-                System.out.println("ENTRO A ESCRITOS");
             }else{
-                lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+                if (bibliotecaP.getjTxtBuscar().getText().length()!=0) {
+                    lista=baseDatos.buscarLibroT(bibliotecaP.getjTxtBuscar().getText());
+                }else{
+                    lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+                }
                 mostrar(lista);
-                System.out.println("ENTRO A TITULO");
             }
         }
+        System.out.println("");
         
 //login3
         if(e.getSource().equals(login.getjBtnAceptar())){
@@ -288,12 +311,12 @@ public class Controlador implements ActionListener{
 //BibliotecaP
         
         if (e.getSource().equals(bibliotecaP.getjMnNuevoSocio())){
-             bibliotecaP.dispose();
+            //bibliotecaP.dispose();
             ingresarNuevoSocio.show();
         }
         
         if (e.getSource().equals(bibliotecaP.getjMnIngresarUs())) {
-             bibliotecaP.dispose();
+            bibliotecaP.dispose();
             login.show();
         }
         if (e.getSource().equals(bibliotecaP.getjMnAutores())) {
@@ -312,7 +335,7 @@ public class Controlador implements ActionListener{
             }
         }
         if(e.getSource().equals(bibliotecaP.getjMnUbiLibro())){
-           bibliotecaP.dispose();
+           //bibliotecaP.dispose();
            ubicacionLibro.show();
        }
         if(e.getSource().equals(bibliotecaP.getjMnPrestarLibro())){
@@ -337,7 +360,7 @@ public class Controlador implements ActionListener{
             conocerSocios.getjLblBandera().setText("SOCIOS TOTALES");
        }
         if(e.getSource().equals(bibliotecaP.getjMnIngresarLibro())){
-            bibliotecaP.dispose();
+            //bibliotecaP.dispose();
             ingresarLibros.show();
        }
        
@@ -376,7 +399,7 @@ public class Controlador implements ActionListener{
  //IngresarNuevoSocio
         if(e.getSource().equals(ingresarNuevoSocio.getjBtnCancelar())){
            ingresarNuevoSocio.dispose();
-           bibliotecaP.show();
+           //bibliotecaP.show();
            limpiarNuevoSocio();
        }
         if(e.getSource().equals(ingresarNuevoSocio.getjBtnAceptar())){
@@ -421,8 +444,9 @@ public class Controlador implements ActionListener{
                     ,ingresarNuevoSocio.getjTxtCsecuandaria().getText(), ingresarNuevoSocio.getjTxtNumeracion().getText()));
             int bandera=0;
             if (baseDatos.añadiSocio(auxSocio)==1) {
-                 System.out.println(tipoVivienda);
+                System.out.println(tipoVivienda);
                 JOptionPane.showMessageDialog(null, "Completado");
+                ingresarNuevoSocio.dispose();
                 limpiarNuevoSocio();
             }else{
                 JOptionPane.showMessageDialog(null, "ERROR");
@@ -432,7 +456,6 @@ public class Controlador implements ActionListener{
         c=conocerSocios.getjTbtlSocios().getSelectedRow();      
         if (c!=-1) {                  
             String g =String.valueOf(conocerSocios.getjTbtlSocios().getModel().getValueAt(c,0));
-            System.out.println(g);
             Socio auxS=datosSocio();               
       
             baseDatos.getSocios().remove(baseDatos.buscarSocio(g, g, g));
@@ -457,7 +480,7 @@ public class Controlador implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Se guardo con exito");
                 ingresarNuevoSocio.dispose();
                 bibliotecaP.show();
-                 limpiarNuevoSocio();
+                limpiarNuevoSocio();
             }           
             
         }else{
@@ -505,18 +528,18 @@ public class Controlador implements ActionListener{
 //IngresarLibros
         if(e.getSource().equals(ingresarLibros.getjBtnAtras())){
            ingresarLibros.dispose();
-           bibliotecaP.show();
+          // bibliotecaP.show();
        }
         
         if(e.getSource().equals(ingresarLibros.getjBtnAutor())){ 
             try{
             Libro auxLibro=datosLibro();
-            System.out.println(auxLibro.getCodigo());
             int x = baseDatos.añadiLibro(auxLibro);
             autor.show();
             }
             catch(Exception b){
-                 JOptionPane.showMessageDialog(null, "Llenar datos de Libro y que no exista espacios antes de escribir ");      
+               JOptionPane.showMessageDialog(null, "Llenar datos de Libro");
+                 JOptionPane.showMessageDialog(null, " Verificar que no existan espacios antes y despues de escribir");
                     }
         }
         
@@ -528,9 +551,6 @@ public class Controlador implements ActionListener{
         if (c!=(-1)) {                  
             String g =String.valueOf(catalogoLibros.getjTblLibros().getModel().getValueAt(c,0));
             String codigoAux =ingresarLibros.getjTxtCodigoLibro().getText();
-            System.out.println("ADAWD"+codigoAux);
-            System.out.println(g);
-            System.out.println("");
             Libro auxLibro=datosLibro();               
             if (baseDatos.buscarLibro("PRUEBA").equals("No encontrado")) {
                 baseDatos.añadiLibro(auxLibro);
@@ -562,6 +582,7 @@ public class Controlador implements ActionListener{
         }
         if (x==0) {
            JOptionPane.showMessageDialog(null, "Se guardo con exito el libro");
+           ingresarLibros.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Libro ya registrado no se guardo");
 
@@ -580,7 +601,7 @@ public class Controlador implements ActionListener{
        }
         if(e.getSource().equals(prestamosLibros.getjBtnBuscar())){
             bibliotecaP.dispose();
-            
+            bibliotecaP.getjTxtBuscar().setText("");
             if (prestamosLibros.getJlblUs().getText().equals("No Iniciado Sesion")) {
                 JOptionPane.showMessageDialog(null, "Necesita Ingresar Sesion para pedir un libro");
             }else{
@@ -611,7 +632,7 @@ public class Controlador implements ActionListener{
 //UbicacionLibro1
         if(e.getSource().equals(ubicacionLibro.getjBtnAtras())){
            ubicacionLibro.dispose();
-           bibliotecaP.show();
+           //bibliotecaP.show();
        }
 
         if(e.getSource().equals(ubicacionLibro.getjBtnAceptar())){
@@ -704,13 +725,10 @@ public class Controlador implements ActionListener{
                     Integer.parseInt(actulizarUbiLibro.getjTxtHabitacion().getText()),
                     Integer.parseInt(actulizarUbiLibro.getjTxtEstante().getText())
             );
-            String[] area={"Generalidades","Filosofia","Religion","Ciencias Sociales","Filogia","Ciencias Naturales","Tecnicas","Ciencias Practicas","Arte y Literatura","Historia"};
-            System.out.println(String.valueOf(ingresarLibros.getjComboAreaLibro().getItemAt(2)));
-            
+               String[] area={"Generalidades","Filosofia","Religion","Ciencias Sociales","Filogia","Ciencias Naturales","Tecnicas y Ciencias Practicas","Arte y Literatura","Historia"};           
             for (int i = 0; i < baseDatos.getLibrosTotal().size(); i++) {
                 if ( baseDatos.getLibrosTotal().get(i).getCodigo().equals(ubicacionLibro.getjTxtCodigo().getText())) {
                         if (baseDatos.getLibrosTotal().get(i).actualizarUbi(ubi, area[ actulizarUbiLibro.getjCbxArea().getSelectedIndex()])==1) {
-                        System.out.println(actulizarUbiLibro.getjCbxArea().getSelectedIndex());
                         JOptionPane.showMessageDialog(null, "Actualizado");
                         
                         actulizarUbiLibro.getjTxtEstante().setText(null);
@@ -723,6 +741,14 @@ public class Controlador implements ActionListener{
                     }
                 }
             }
+            ArrayList<Libro> lista =new ArrayList();
+            if (catalogoLibros.getjLblBandera().getText().equals("LIBROS ESCRITOS")) {
+                lista=baseDatos.librosAutores(prestamosLibros.getjTxtTituloL().getText());
+                mostrar(lista);
+            }else{
+                lista=baseDatos.buscarLibroT(prestamosLibros.getjTxtTituloL().getText());
+                mostrar(lista);
+            }
            }catch(Exception x){
                 JOptionPane.showMessageDialog(null, "Autor No Ingresado");
             }
@@ -734,7 +760,10 @@ public class Controlador implements ActionListener{
           actulizarUbiLibro.getjTxtPiso().setText(null);
        }
     }
-        
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////FUNCIONES ADICIONALES /////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
     private void mostrar(ArrayList<Libro> ar){
         String matris[][]=new String[ar.size()][5];
         
